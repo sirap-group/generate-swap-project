@@ -1,14 +1,20 @@
 {
-  "name": "dev",
+  "name": "generate-swap-project",
   "description": "A generator for SWAP projects",
   "version": "0.1.0",
-  "homepage": "https://github.com/Rémi%20Becheras/dev",
+  "homepage": "https://github.com/rbecheras/generate-swap-project",
   "author": "Rémi Becheras (https://github.com/rbecheras)",
-  "repository": "Rémi%20Becheras/dev",
+  "repository": "rbecheras/generate-swap-project",
   "bugs": {
-    "url": "https://github.com/Rémi%20Becheras/dev/issues"
+    "url": "https://github.com/rbecheras/generate-swap-project/issues"
   },
   "license": "MIT",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "index.js",
   "engines": {
     "node": ">=4"
   },
@@ -16,6 +22,8 @@
     "test": "mocha"
   },
   "keywords": [
-    "dev"
+    "generate",
+    "project",
+    "swap"
   ]
 }

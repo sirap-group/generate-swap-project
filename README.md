@@ -1,18 +1,18 @@
-# dev [![NPM version](https://badge.fury.io/js/dev.svg)](https://npmjs.org/package/dev) [![Build Status](https://travis-ci.org/Rémi%20Becheras/dev.svg?branch=master)](https://travis-ci.org/Rémi%20Becheras/dev)
+# generate-swap-project [![NPM version](https://badge.fury.io/js/generate-swap-project.svg)](https://npmjs.org/package/generate-swap-project) [![Build Status](https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master)](https://travis-ci.org/rbecheras/generate-swap-project)
 
 > A generator for SWAP projects
 
 ## Installation
 
 ```sh
-$ npm install --save dev
+$ npm install --save generate-swap-project
 ```
 
 ## Usage
 
 ```js
-var dev = require('dev');
-dev();
+var generateSwapProject = require('generate-swap-project');
+generateSwapProject();
 ```
 
 ## License
