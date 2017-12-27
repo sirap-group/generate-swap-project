@@ -1,6 +1,8 @@
 'use strict';
 
 var isValid = require('is-valid-app');
+var extend = require('extend');
+var path = require('path')
 
 module.exports = function(app) {
   if (!isValid(app, 'generate-swap-project')) return;
@@ -21,11 +23,10 @@ module.exports = function(app) {
    * @api public
    */
 
-  app.task('swap-project', ['files', 'generator', 'index']);
-  task(app, 'generator', ['generatorjs', 'index', 'install']);
+  app.task('swap-project', ['testfile']);
 
   /**
-   * Write a `generator.js` file to the current working directory.
+   * Write a `test-file.txt` file to the current working directory.
    *
    * ```sh
    * $ gen swap-project:file
@@ -34,31 +35,8 @@ module.exports = function(app) {
    * @api public
    */
 
-  task(app, 'generatorjs', 'templates/generator.js');
+  task(app, 'testfile', 'test-file.txt');
 
-  /**
-   * Write a `generator.js` file to the current working directory.
-   *
-   * ```sh
-   * $ gen swap-project:file
-   * ```
-   * @name file
-   * @api public
-   */
-
-  task(app, 'index', 'templates/index.js');
-
-  /**
-   * Generate the files in the `templates` directory.
-   *
-   * ```sh
-   * $ gen swap-project:templates
-   * ```
-   * @name templates
-   * @api public
-   */
-
-  task(app, 'templates', 'templates/templates/*');
 
   /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)

@@ -66,12 +66,12 @@ describe('generate-swap-project', function() {
 
     it('should run the `default` task with .build', function(cb) {
       app.use(generator);
-      app.build('default', exists('generator.test.js', cb));
+      app.build('default', exists('test-file.txt', cb));
     });
 
     it('should run the `default` task with .generate', function(cb) {
       app.use(generator);
-      app.generate('default', exists('generator.test.js', cb));
+      app.generate('default', exists('test-file.txt', cb));
     });
   });
 
@@ -82,7 +82,7 @@ describe('generate-swap-project', function() {
         return;
       }
       app.use(generator);
-      app.generate('generate-swap-project', exists('generator.test.js', cb));
+      app.generate('generate-swap-project', exists('test-file.txt', cb));
     });
 
     it('should run the default task using the `generator` generator alias', function(cb) {
@@ -91,24 +91,24 @@ describe('generate-swap-project', function() {
         return;
       }
       app.use(generator);
-      app.generate('swap-project', exists('generator.test.js', cb));
+      app.generate('swap-project', exists('test-file.txt', cb));
     });
   });
 
   describe('swap-project (API)', function() {
     it('should run the default task on the generator', function(cb) {
       app.register('swap-project', generator);
-      app.generate('swap-project', exists('generator.test.js', cb));
+      app.generate('swap-project', exists('test-file.txt', cb));
     });
 
     it('should run the `swap-project` task', function(cb) {
       app.register('swap-project', generator);
-      app.generate('swap-project:swap-project', exists('generator.test.js', cb));
+      app.generate('swap-project:swap-project', exists('test-file.txt', cb));
     });
 
     it('should run the `default` task when defined explicitly', function(cb) {
       app.register('swap-project', generator);
-      app.generate('swap-project:default', exists('generator.test.js', cb));
+      app.generate('swap-project:default', exists('test-file.txt', cb));
     });
   });
 
@@ -117,28 +117,28 @@ describe('generate-swap-project', function() {
       app.register('foo', function(foo) {
         foo.register('swap-project', generator);
       });
-      app.generate('foo.swap-project', exists('generator.test.js', cb));
+      app.generate('foo.swap-project', exists('test-file.txt', cb));
     });
 
     it('should run the `default` task by default', function(cb) {
       app.register('foo', function(foo) {
         foo.register('swap-project', generator);
       });
-      app.generate('foo.swap-project', exists('generator.test.js', cb));
+      app.generate('foo.swap-project', exists('test-file.txt', cb));
     });
 
     it('should run the `generator:default` task when defined explicitly', function(cb) {
       app.register('foo', function(foo) {
         foo.register('swap-project', generator);
       });
-      app.generate('foo.swap-project:default', exists('generator.test.js', cb));
+      app.generate('foo.swap-project:default', exists('test-file.txt', cb));
     });
 
     it('should run the `generator:swap-project` task', function(cb) {
       app.register('foo', function(foo) {
         foo.register('swap-project', generator);
       });
-      app.generate('foo.swap-project:swap-project', exists('generator.test.js', cb));
+      app.generate('foo.swap-project:swap-project', exists('test-file.txt', cb));
     });
 
     it('should work with nested sub-generators', function(cb) {
@@ -147,19 +147,15 @@ describe('generate-swap-project', function() {
         .register('bar', generator)
         .register('baz', generator)
 
-      app.generate('foo.bar.baz', exists('generator.test.js', cb));
+      app.generate('foo.bar.baz', exists('test-file.txt', cb));
     });
 
     it('should run tasks as a sub-generator', function(cb) {
-      app = generate({silent: true, cli: true});
+      app = generate({silent: false, cli: true});
 
       app.generator('foo', function(sub) {
         sub.register('swap-project', require('..'));
-        sub.generate('swap-project:unit-test', function(err) {
-          if (err) return cb(err);
-          assert.equal(app.base.get('cache.unit-test'), true);
-          cb();
-        });
+        sub.generate('swap-project:testfile', exists('test-file.txt', cb));
       });
     });
   });

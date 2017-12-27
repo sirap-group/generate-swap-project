@@ -35,5 +35,8 @@
     "generate": "^0.14.0",
     "mocha": "^4.0.1",
     "npm-install-global": "^1.0.0"
+  },
+  "dependencies": {
+    "extend": "^3.0.1"
   }
 }
