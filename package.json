@@ -1,0 +1,21 @@
+{
+  "name": "dev",
+  "description": "A generator for SWAP projects",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Rémi%20Becheras/dev",
+  "author": "Rémi Becheras (https://github.com/rbecheras)",
+  "repository": "Rémi%20Becheras/dev",
+  "bugs": {
+    "url": "https://github.com/Rémi%20Becheras/dev/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "dev"
+  ]
+}
