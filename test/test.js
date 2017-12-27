@@ -37,20 +37,8 @@ describe('generate-swap-project', function() {
     });
   }
 
-  beforeEach(function() {
-    app = generate({silent: true});
-    app.cwd = actual();
-    app.option('dest', actual());
-
-    // see: https://github.com/jonschlinkert/ask-when
-    app.option('askWhen', 'not-answered');
-
-    // set default data to use in templates. feel free to remove anything
-    // that isn't used (e.g. if "username" isn't defined in templates, just remove it)
-    app.data(pkg);
-    app.data('project', pkg);
-    app.data('username', 'foo');
-    app.data('owner', 'foo');
+  beforeEach(function () {
+    beforeEachTest(true, false)
   });
 
   afterEach(function(cb) {
@@ -151,12 +139,26 @@ describe('generate-swap-project', function() {
     });
 
     it('should run tasks as a sub-generator', function(cb) {
-      app = generate({silent: false, cli: true});
-
-      app.generator('foo', function(sub) {
-        sub.register('swap-project', require('..'));
-        sub.generate('swap-project:testfile', exists('test-file.txt', cb));
-      });
+      beforeEachTest(true, true)
+      var sub0 = app.register('sub0', generator)
+      var sub1 = sub0.register('sub1', generator)
+      app.generate('sub0.sub1:testfile', exists('test-file.txt', cb));
     });
   });
+
+  function beforeEachTest (silent, cli) {
+    app = generate({silent: silent, cli: cli});
+    app.cwd = actual();
+    app.option('dest', actual());
+
+    // see: https://github.com/jonschlinkert/ask-when
+    app.option('askWhen', 'not-answered');
+
+    // set default data to use in templates. feel free to remove anything
+    // that isn't used (e.g. if "username" isn't defined in templates, just remove it)
+    app.data(pkg);
+    app.data('project', pkg);
+    app.data('username', 'foo');
+    app.data('owner', 'foo');
+  }
 });
