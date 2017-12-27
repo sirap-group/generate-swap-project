@@ -3,7 +3,7 @@
 require('mocha');
 var assert = require('assert');
 var generate = require('generate');
-var generator = require('./');
+var generator = require('..');
 var app;
 
 describe('generate-swap-project', function() {
