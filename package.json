@@ -10,20 +10,24 @@
   },
   "license": "MIT",
   "files": [
+    "generator.js",
     "index.js",
     "LICENSE",
     "README.md"
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
     "generate",
+    "generategenerator",
     "project",
-    "swap"
+    "swap",
+    "nodejs",
+    "javascript"
   ]
 }

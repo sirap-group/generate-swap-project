@@ -1,4 +1,1 @@
-'use strict';
-
-module.exports = function() {
-};
+module.exports = require('./generator');
