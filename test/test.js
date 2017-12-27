@@ -64,7 +64,7 @@ describe('generate-swap-project', function() {
   });
 
   describe('swap-project (CLI)', function() {
-    it('should run the default task using the `generate-swap-project` name', function(cb) {
+    it('should run the default task using the `generate-swap-project` name (global install)', function(cb) {
       if (isTravis) {
         this.skip();
         return;
@@ -73,7 +73,7 @@ describe('generate-swap-project', function() {
       app.generate('generate-swap-project', exists('test-file.txt', cb));
     });
 
-    it('should run the default task using the `generator` generator alias', function(cb) {
+    it('should run the default task using the `swap-project` generator alias (local generator.js)', function(cb) {
       if (isTravis) {
         this.skip();
         return;
