@@ -20,9 +20,15 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "lint": "yarn run lint:standard",
-    "lint:standard": "yarn run standard generator.js index.js src/*.js src/**/*.js",
-    "test": "mocha"
+    "clear": "yarn rimraf build dist",
+    "lint": "yarn lint:standard",
+    "lint:standard": "yarn standard src/*.js src/**/*.js",
+    "build": "yarn build:lib && yarn build:tests && yarn build:docs",
+    "build:lib": "yarn babel src/lib/ --out-dir dist/lib --source-maps",
+    "build:tests": "yarn babel src/tests/ --out-dir dist/tests --source-maps",
+    "build:docs": "echo WARNING: No documentation build available yet",
+    "test": "yarn mocha dist/tests/**/*.js",
+    "pipeline": "yarn clear && yarn lint && yarn build && yarn test"
   },
   "keywords": [
     "generate",
