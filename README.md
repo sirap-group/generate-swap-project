@@ -15,6 +15,12 @@ $ npm install --global generate generate-swap-project
 $ gen swap-project
 ```
 
+Should scaffold the following files in the current working directory:
+
+```
+./testfile.txt
+```
+
 ## Contribute
 
 
