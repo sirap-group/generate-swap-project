@@ -21,8 +21,8 @@
   },
   "scripts": {
     "clear": "yarn rimraf build dist",
-    "lint": "yarn lint:standard",
-    "lint:standard": "yarn standard src/*.js src/**/*.js",
+    "lint": "yarn lint:esnext",
+    "lint:esnext": "yarn standard src/*.js src/**/*.js",
     "build": "yarn build:lib && yarn build:tests && yarn build:docs",
     "build:lib": "yarn babel src/lib/ --out-dir dist/lib --source-maps",
     "build:tests": "yarn babel src/tests/ --out-dir dist/tests --source-maps",

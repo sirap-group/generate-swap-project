@@ -80,7 +80,7 @@ $ yarn pipeline
 |---|---|
 | `yarn clear` | Delete the `./build/` and `./dist` repositories |
 | `yarn lint` | Lint source files |
-| `yarn lint:standard` | Lint ESNext source files |
+| `yarn lint:esnext` | Lint ESNext source files |
 | `yarn build` | Build the whole distribution |
 | `yarn build:lib` | Build only the lib |
 | `yarn build:tests` | Build only the tests |
