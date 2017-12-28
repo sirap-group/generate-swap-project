@@ -1,1 +1,1 @@
-export default from './generator'
+module.exports = require('./generator')
