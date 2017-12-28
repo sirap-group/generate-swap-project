@@ -1,1 +1,1 @@
-module.exports = require('./dist/lib/generator')
+module.exports = require('./dist/lib/generator').default
