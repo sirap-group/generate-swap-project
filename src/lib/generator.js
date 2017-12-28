@@ -59,7 +59,7 @@ function task (app, name, pattern, dependencies) {
 
 function file (app, pattern) {
   const opts = extend({}, app.base.options, app.options)
-  const srcBase = opts.srcBase || path.join(__dirname, 'templates')
+  const srcBase = opts.srcBase || path.join(__dirname, '..', '..', 'templates')
   return app.src(pattern, {cwd: srcBase})
     .pipe(app.renderFile('*', app.base.cache.data))
     .pipe(app.conflicts(app.cwd))
