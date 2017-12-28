@@ -2,14 +2,18 @@ sudo: false
 language: node_js
 node_js:
   - "node"
-  - "6"
+  - "9"
+  - "lts/carbon"
+  - "7"
+  - "lts/boron"
   - "5"
-  - "4"
-  - "0.12"
-  - "0.10"
+  - "lts/argon"
 matrix:
   fast_finish: true
   allow_failures:
-    - node_js: "4"
-    - node_js: "0.10"
-    - node_js: "0.12"
+    - node_js: "5"
+    - node_js: "lts/argon"
+script:
+  - npm link
+  - npm install --global generate .
+  - yarn travis
