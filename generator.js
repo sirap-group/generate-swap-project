@@ -1,15 +1,15 @@
-import isValid from 'is-valid-app';
-import extend from 'extend';
-import path from 'path';
+import isValid from 'is-valid-app'
+import extend from 'extend'
+import path from 'path'
 
-export default function(app) {
-  if (!isValid(app, 'generate-swap-project')) return;
+export default function (app) {
+  if (!isValid(app, 'generate-swap-project')) return
 
   /**
    * Plugins
    */
 
-  app.use(require('generate-defaults'));
+  app.use(require('generate-defaults'))
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -21,7 +21,7 @@ export default function(app) {
    * @api public
    */
 
-  app.task('swap-project', ['testfile']);
+  app.task('swap-project', ['testfile'])
 
   /**
    * Write a `test-file.txt` file to the current working directory.
@@ -33,8 +33,7 @@ export default function(app) {
    * @api public
    */
 
-  task(app, 'testfile', 'test-file.txt');
-
+  task(app, 'testfile', 'test-file.txt')
 
   /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
@@ -47,22 +46,22 @@ export default function(app) {
    * @api public
    */
 
-  app.task('default', ['swap-project']);
+  app.task('default', ['swap-project'])
 };
 
 /**
  * Create a task with the given `name` and glob `pattern`
  */
 
-function task(app, name, pattern, dependencies) {
-  app.task(name, dependencies || [], cb => file(app, pattern));
+function task (app, name, pattern, dependencies) {
+  app.task(name, dependencies || [], cb => file(app, pattern))
 }
 
-function file(app, pattern) {
-  const opts = extend({}, app.base.options, app.options);
-  const srcBase = opts.srcBase || path.join(__dirname, 'templates');
+function file (app, pattern) {
+  const opts = extend({}, app.base.options, app.options)
+  const srcBase = opts.srcBase || path.join(__dirname, 'templates')
   return app.src(pattern, {cwd: srcBase})
     .pipe(app.renderFile('*', app.base.cache.data))
     .pipe(app.conflicts(app.cwd))
-    .pipe(app.dest(app.cwd));
+    .pipe(app.dest(app.cwd))
 }
