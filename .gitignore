@@ -1,6 +1,11 @@
-node_modules
-coverage
+# node/npm
 package-lock.json
-.vscode
-build
-dist
+node_modules/
+
+# Pipelines
+coverage/
+build/
+dist/
+
+# IDEs
+.vscode/
