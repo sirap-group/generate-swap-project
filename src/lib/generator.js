@@ -12,6 +12,11 @@ export default function (app) {
   app.use(require('generate-defaults'))
 
   /**
+   * Micro generators (as plugins)
+   */
+  app.register('destination-directory', require('generate-dest'))
+
+  /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
    *
    * ```sh
@@ -21,7 +26,9 @@ export default function (app) {
    * @api public
    */
 
-  app.task('swap-project', ['testfile'])
+  app.task('swap-project', function (cb) {
+    app.generate(['destination-directory:default', 'testfile'], cb)
+  })
 
   /**
    * Write a `test-file.txt` file to the current working directory.
