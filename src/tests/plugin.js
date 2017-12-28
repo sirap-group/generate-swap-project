@@ -1,7 +1,9 @@
 import 'mocha'
 import assert from 'assert'
 import generate from 'generate'
-import generator from '..'
+
+import generator from '../lib/generator'
+
 let app
 
 describe('generate-swap-project', function () {

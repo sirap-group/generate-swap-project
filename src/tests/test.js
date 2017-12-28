@@ -5,26 +5,15 @@ import assert from 'assert'
 import generate from 'generate'
 import npm from 'npm-install-global'
 import del from 'delete'
-import pkg from '../package'
-import generator from '..'
+
+import pkg from '../../package'
+import generator from '../lib/generator'
+
 let app
 
 const isTravis = process.env.CI || process.env.TRAVIS
 // const fixtures = path.resolve.bind(path, __dirname, 'fixtures')
 const actual = path.resolve.bind(path, __dirname, 'actual')
-
-function exists (name, cb) {
-  return function (err) {
-    if (err) return cb(err)
-    const filepath = actual(name)
-
-    fs.stat(filepath, function (err, stat) {
-      if (err) return cb(err)
-      assert(stat)
-      del(actual(), cb)
-    })
-  }
-}
 
 describe('generate-swap-project', function () {
   this.slow(250)
@@ -161,3 +150,16 @@ describe('generate-swap-project', function () {
     app.data('owner', 'foo')
   }
 })
+
+function exists (name, cb) {
+  return function (err) {
+    if (err) return cb(err)
+    const filepath = actual(name)
+
+    fs.stat(filepath, function (err, stat) {
+      if (err) return cb(err)
+      assert(stat)
+      del(actual(), cb)
+    })
+  }
+}
