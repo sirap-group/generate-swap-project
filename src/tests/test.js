@@ -11,14 +11,15 @@ import generator from '../lib/generator'
 
 let app
 
-const isTravis = process.env.CI || process.env.TRAVIS
+const isCI = process.env.CI
+const isTravis = isCI || process.env.TRAVIS
 // const fixtures = path.resolve.bind(path, __dirname, 'fixtures')
 const actual = path.resolve.bind(path, __dirname, 'actual')
 
 describe('generate-swap-project', function () {
   this.slow(250)
 
-  if (!process.env.CI && !process.env.TRAVIS) {
+  if (!isCI && !isTravis) {
     before(function (cb) {
       npm.maybeInstall('generate', cb)
     })
@@ -52,19 +53,11 @@ describe('generate-swap-project', function () {
 
   describe('swap-project (CLI)', function () {
     it('should run the default task using the `generate-swap-project` name (global install)', function (cb) {
-      if (isTravis) {
-        this.skip()
-        return
-      }
       app.use(generator)
       app.generate('generate-swap-project', exists('test-file.txt', cb))
     })
 
     it('should run the default task using the `swap-project` generator alias (local generator.js)', function (cb) {
-      if (isTravis) {
-        this.skip()
-        return
-      }
       app.use(generator)
       app.generate('swap-project', exists('test-file.txt', cb))
     })
