@@ -20,6 +20,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "lint": "yarn run lint:standard",
+    "lint:standard": "yarn run standard generator.js index.js src/*.js src/**/*.js",
     "test": "mocha"
   },
   "keywords": [
