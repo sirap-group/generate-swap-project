@@ -75,6 +75,9 @@
       "build",
       "dist",
       "node_modules/**"
-    ]
+    ],
+    "env": {
+      "mocha": true
+    }
   }
 }
