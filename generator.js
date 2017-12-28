@@ -1,10 +1,8 @@
-'use strict';
+import isValid from 'is-valid-app';
+import extend from 'extend';
+import path from 'path';
 
-var isValid = require('is-valid-app');
-var extend = require('extend');
-var path = require('path')
-
-module.exports = function(app) {
+export default function(app) {
   if (!isValid(app, 'generate-swap-project')) return;
 
   /**
@@ -57,14 +55,12 @@ module.exports = function(app) {
  */
 
 function task(app, name, pattern, dependencies) {
-  app.task(name, dependencies || [], function(cb) {
-    return file(app, pattern);
-  });
+  app.task(name, dependencies || [], cb => file(app, pattern));
 }
 
 function file(app, pattern) {
-  var opts = extend({}, app.base.options, app.options);
-  var srcBase = opts.srcBase || path.join(__dirname, 'templates');
+  const opts = extend({}, app.base.options, app.options);
+  const srcBase = opts.srcBase || path.join(__dirname, 'templates');
   return app.src(pattern, {cwd: srcBase})
     .pipe(app.renderFile('*', app.base.cache.data))
     .pipe(app.conflicts(app.cwd))

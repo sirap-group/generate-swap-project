@@ -1,24 +1,22 @@
-'use strict';
+import 'mocha';
+import fs from 'fs';
+import path from 'path';
+import assert from 'assert';
+import generate from 'generate';
+import npm from 'npm-install-global';
+import del from 'delete';
+import pkg from '../package';
+import generator from '..';
+let app;
 
-require('mocha');
-var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
-var generate = require('generate');
-var npm = require('npm-install-global');
-var del = require('delete');
-var pkg = require('../package');
-var generator = require('..');
-var app;
-
-var isTravis = process.env.CI || process.env.TRAVIS;
-var fixtures = path.resolve.bind(path, __dirname, 'fixtures');
-var actual = path.resolve.bind(path, __dirname, 'actual');
+const isTravis = process.env.CI || process.env.TRAVIS;
+const fixtures = path.resolve.bind(path, __dirname, 'fixtures');
+const actual = path.resolve.bind(path, __dirname, 'actual');
 
 function exists(name, cb) {
   return function(err) {
     if (err) return cb(err);
-    var filepath = actual(name);
+    const filepath = actual(name);
 
     fs.stat(filepath, function(err, stat) {
       if (err) return cb(err);
@@ -140,14 +138,14 @@ describe('generate-swap-project', function() {
 
     it('should run tasks as a sub-generator', function(cb) {
       beforeEachTest(true, true)
-      var sub0 = app.register('sub0', generator)
-      var sub1 = sub0.register('sub1', generator)
+      const sub0 = app.register('sub0', generator)
+      const sub1 = sub0.register('sub1', generator)
       app.generate('sub0.sub1:testfile', exists('test-file.txt', cb));
     });
   });
 
   function beforeEachTest (silent, cli) {
-    app = generate({silent: silent, cli: cli});
+    app = generate({silent, cli});
     app.cwd = actual();
     app.option('dest', actual());
 

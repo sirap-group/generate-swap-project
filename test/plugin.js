@@ -1,10 +1,8 @@
-'use strict';
-
-require('mocha');
-var assert = require('assert');
-var generate = require('generate');
-var generator = require('..');
-var app;
+import 'mocha';
+import assert from 'assert';
+import generate from 'generate';
+import generator from '..';
+let app;
 
 describe('generate-swap-project', function() {
   beforeEach(function() {
@@ -19,7 +17,7 @@ describe('generate-swap-project', function() {
     });
 
     it('should only register the plugin once', function(cb) {
-      var count = 0;
+      let count = 0;
       app.on('plugin', function(name) {
         if (name === 'generate-swap-project') {
           count++;
