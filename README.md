@@ -1,7 +1,13 @@
 # generate-swap-project [![NPM version](https://badge.fury.io/js/generate-swap-project.svg)](https://npmjs.org/package/generate-swap-project) [![Build Status](https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master)](https://travis-ci.org/rbecheras/generate-swap-project) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
-> A generator for SWAP projects
+
+<figure style="text-align:center; display:block;">
+  <img src="src/assets/img/brand.png"></img>
+  <figcaption>
+  > A generator for SWAP projects <
+  </figcaption>
+</figure>
 
 ## Installation
 
@@ -80,7 +86,7 @@ Finally, run the whole pipeline to get running tests:
 $ yarn pipeline
 ```
 
-#### Discover the tasks pipeline
+#### Discover all the development tasks
 
 | Task Command | Task description |
 |---|---|
