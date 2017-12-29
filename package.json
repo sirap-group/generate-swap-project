@@ -42,10 +42,13 @@
   "keywords": [
     "generate",
     "generategenerator",
+    "generator",
     "project",
-    "swap",
     "nodejs",
-    "javascript"
+    "javascript",
+    "swap",
+    "sirap",
+    "sirap-group"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
