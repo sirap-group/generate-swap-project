@@ -1,35 +1,37 @@
 import inspect from 'prettier-inspect'
 import debug from 'debug'
 
+const log = ::console.log
+const logErr = ::console.error
+
 debug.formatters.i = v => inspect(v)
 
 export default class Logger {
   constructor (name) {
-    this.infoLogger = debug(`${name}:INFO`)
-    this.warnLogger = debug(`${name}:WARN`)
-    this.debugLogger = debug(`${name}:DEBUG`)
-    this.errorLogger = debug(`${name}:ERROR`)
+    this._info = debug(`${name}:INFO`)
+    this._warn = debug(`${name}:WARN`)
+    this._debug = debug(`${name}:DEBUG`)
+    this._error = debug(`${name}:ERROR`)
 
-    this.infoLogger.log = ::console.log
-    this.infoLogger.log = ::console.log
-    this.warnLogger.log = ::console.log
-    this.debugLogger.log = ::console.log
-    this.errorLogger.log = ::console.error
+    this._info.log = log
+    this._warn.log = log
+    this._debug.log = log
+    this._error.log = logErr
   }
 
-  info (...args) {
-    this.infoLogger.apply(this.infoLogger, args)
+  info () {
+    ::this._info(...arguments)
   }
 
-  debug (...args) {
-    this.debugLogger.apply(this.debugLogger, args)
+  warn () {
+    ::this._warn(...arguments)
   }
 
-  warn (...args) {
-    this.warnLogger.apply(this.warnLogger, args)
+  debug () {
+    ::this._debug(inspect(...arguments))
   }
 
-  error (...args) {
-    this.errorLogger.apply(this.errorLogger, args)
+  error () {
+    ::this._error(inspect(...arguments))
   }
 }
