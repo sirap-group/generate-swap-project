@@ -1,9 +1,17 @@
 import isValid from 'is-valid-app'
 import extend from 'extend'
 import path from 'path'
+import Logger from './utils/Logger'
+
+const log = new Logger('generate-swap-project')
 
 export default function (app) {
   if (!isValid(app, 'generate-swap-project')) return
+
+  /**
+   * Listen for errors
+   */
+  app.on('error', ::log.error)
 
   /**
    * Plugins
