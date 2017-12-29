@@ -1,13 +1,12 @@
 # generate-swap-project [![NPM version](https://badge.fury.io/js/generate-swap-project.svg)](https://npmjs.org/package/generate-swap-project) [![Build Status](https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master)](https://travis-ci.org/rbecheras/generate-swap-project) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-
-
-<figure style="text-align:center; display:block;">
-  <img src="src/assets/img/brand.png"></img>
-  <figcaption>
-  > A generator for SWAP projects <
-  </figcaption>
-</figure>
+<p style="text-align:center">
+  By <img src="src/assets/img/brand.png"></img>
+  <br/>
+  <span style="font-weight: bold; font-style: italic; font-size:1.5em">
+    −− A generator for SWAP projects −−
+  </span>
+</p>
 
 ## Installation
 
@@ -29,12 +28,11 @@ Should scaffold the following files in the current working directory:
 
 ## Contribute
 
-
 ### Codebase
 
 The codebase is written using the [ESNext Specification](https://github.com/hemanth/es-next) (ECMAScript Stage 0), following the [StandardJS Code Style](https://standardjs.com/)
 
-[![ECMASript](src/assets/img/js.png)](https://github.com/hemanth/es-next)
+[![ECMASript](src/assets/img/esnext.png)](https://github.com/hemanth/es-next)
 [![JavaScript Style Guide](src/assets/img/standard.png)](https://github.com/standard/standard)
 [![ESLint](src/assets/img/eslint.png)](https://eslint.org)
 [![Babel JS](src/assets/img/babel.png)](https://babeljs.io)
