@@ -28,8 +28,16 @@
     "build:tests": "yarn babel src/tests/ --out-dir dist/tests --source-maps",
     "build:docs": "echo WARNING: No documentation build available yet",
     "test": "yarn mocha dist/tests/**/*.js",
-    "pipeline": "yarn clear && yarn lint && yarn build && yarn test",
-    "travis": "yarn pipeline"
+    "tests": "yarn test",
+    "travis": "yarn pipeline",
+    "docs": "echo WARNING: No documentation to serve yet",
+    "pipeline": "yarn pipeline:build && yarn tests",
+    "pipeline:tests": "yarn pipeline:build:tests && yarn test",
+    "pipeline:docs": "yarn pipeline:build:docs && yarn docs",
+    "pipeline:build": "yarn lint && yarn clear && yarn build",
+    "pipeline:build:tests": "yarn pipeline:build:lib && yarn build:tests",
+    "pipeline:build:lib": "yarn lint && yarn clear && yarn build:lib",
+    "pipeline:build:docs": "yarn lint && yarn build:docs"
   },
   "keywords": [
     "generate",

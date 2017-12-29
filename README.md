@@ -90,7 +90,18 @@ $ yarn pipeline
 | `yarn build` | Build the whole distribution |
 | `yarn build:lib` | Build only the lib |
 | `yarn build:tests` | Build only the tests |
-| `yarn build:docs` | Build only the docs |
+| `yarn build:docs` | **[TODO]** Build only the docs |
+| `yarn test` | Run the tests in `./dist/tests/` |
+| `yarn tests` | An alias for `yarn test` |
+| `yarn travis` | Run the travis script |
+| `yarn docs` | **[TODO]** Serve the docs |
+| `yarn pipeline` | Run the complete pipeline |
+| `yarn pipeline:test` | Run the required jobs to run the tests, then run the tests |
+| `yarn pipeline:build` | Run the required jobs to build the dist, then build the dist |
+| `yarn pipeline:docs` | **[TODO]** Run the required jobs to serve the docs, then serve the docs |
+| `yarn pipeline:build:tests` | Run the required jobs to build the docs, then build the docs |
+| `yarn pipeline:build:lib` | Run the required jobs to build the docs, then build the docs |
+| `yarn pipeline:build:docs` | **[TODO]** Run the required jobs to build the docs, then build the docs |
 
 ## License
 
