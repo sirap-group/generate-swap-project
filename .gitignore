@@ -1,6 +1,7 @@
-# node/npm
+# packagers
 package-lock.json
 node_modules/
+bower_components/
 
 # Pipelines
 coverage/
@@ -9,3 +10,9 @@ dist/
 
 # IDEs
 .vscode/
+
+# other paterns
+*.log
+~*
+*.lock
+!yarn.lock
