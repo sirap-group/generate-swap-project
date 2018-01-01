@@ -20,11 +20,11 @@ $ npm install --global generate generate-swap-project
 $ gen swap-project
 ```
 
-Should scaffold the following files in the current working directory:
+Should scaffold the project in the destination path you choose when asked.
 
-```
-./testfile.txt
-```
+### Example
+
+![Usage example](src/assets/img/screenshot-usage-example.png)
 
 ## Contribute
 
@@ -78,13 +78,13 @@ $ yarn install
 ```
 #### Running test
 
-Finally, run the whole pipeline to get running tests:
+Finally, run the test pipeline:
 
 ```sh
-$ yarn pipeline
+$ yarn pipeline:test
 ```
 
-#### Discover all the development tasks
+#### Available yarn scripts
 
 | Task Command | Task description |
 |---|---|
