@@ -13,7 +13,8 @@
     "generator.js",
     "index.js",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "dist/"
   ],
   "main": "index.js",
   "engines": {
