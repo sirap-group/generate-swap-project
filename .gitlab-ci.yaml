@@ -1,0 +1,106 @@
+image: node:carbon
+
+before_script:
+- cat /etc/os-release
+- command -v node npm yarn
+- node --version
+- npm --version
+- yarn --version
+- yarn install
+
+stages:
+- lint
+- transpile
+- test
+- build
+# - deploy
+
+lint:
+  stage: lint
+  script:
+  - yarn lint
+  tags:
+  - docker
+
+transpile:
+  stage: transpile
+  script:
+  - yarn build
+  artifacts:
+    when: on_success
+    name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+    paths:
+    - dist/
+  tags:
+  - docker
+
+test:
+  stage: test
+  script:
+  - yarn test
+  dependencies:
+  - transpile
+  tags:
+  - docker
+
+# Not needed for a node application but for browser libs.
+# For node apps, transpilation is enough
+# build:dist:
+#   stage: build
+#   script:
+#   - yarn run grunt browserify
+#   - yarn run grunt uglify
+#   dependencies:
+#   - transpile
+#   artifacts:
+#     when: on_success
+#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     paths:
+#     - dist/
+#   tags:
+#   - docker
+
+# TODO (need implementation of "yarn docs")
+# build:docs:
+#   stage: build
+#   script:
+#   - yarn build:docs
+#   artifacts:
+#     when: on_success
+#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     paths:
+#     - docs/
+#   tags:
+#   - docker
+
+# TODO (need implementation of "yarn release patch|minor|major|prerelease")
+# publish:
+#   stage: deploy
+#   script:
+#   - npm publish
+#   dependencies:
+#   - transpile
+#   artifacts:
+#     when: on_success
+#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     paths:
+#     - dist/
+#   tags:
+#   - docker
+
+# TODO (need implementation of "yarn docs")
+# pages:
+#   stage: deploy
+#   script:
+#   - mv build/docs/esdoc public
+#   - ls -al public/
+#   dependencies:
+#   - build:docs
+#   artifacts:
+#     when: on_success
+#     paths:
+#     - public
+#   only:
+#     - master
+#   tags:
+#   - docker
