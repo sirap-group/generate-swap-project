@@ -84,7 +84,7 @@ gulp.task('gitPush', (done) => {
     if (err) {
       done(err)
     } else {
-      shell.exec(`git push origin ${packageTag}`, done)
+      shell.exec(`git push origin v${packageTag}`, done)
     }
   })
 })
