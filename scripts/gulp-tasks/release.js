@@ -10,6 +10,7 @@ const workingDir = '../../'
 process.chdir(workingDir)
 
 const packageFilePath = './package.json'
+let packageTag
 
 gulp.task('default', ['release:test'])
 
@@ -42,6 +43,20 @@ gulp.task('gitIsRepoClean', (done) => {
       done(chalk.red('Git repository is not clean. Please commit or stash your changes before trying to release a new version.'))
     } else {
       console.log(chalk.green('Your git repository is clean. Ok to continue.'))
+      done()
+    }
+  })
+})
+
+/**
+ * Get tag from package file
+ */
+gulp.task('getPackageTag', done => {
+  jsonfile.readFile(packageFilePath, (err, pkg) => {
+    if (err) {
+      done(err)
+    } else {
+      packageTag = pkg.version
       done()
     }
   })
