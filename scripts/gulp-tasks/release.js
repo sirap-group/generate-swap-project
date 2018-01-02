@@ -58,37 +58,45 @@ gulp.task('gitPush', (done) => {
 /**
  * Bump Prerelease Task
  */
-gulp.task('bump:prerelease', () => {
+gulp.task('bump:prerelease', (done) => {
   gulp.src(packageFilePath)
   .pipe(bump({type: 'prerelease'}))
   .pipe(gulp.dest('./'))
+  .on('error', done)
+  .on('finish', done)
 })
 
 /**
  * Bump Patch Task
  */
-gulp.task('bump:patch', () => {
+gulp.task('bump:patch', (done) => {
   gulp.src(packageFilePath)
   .pipe(bump({type: 'patch'}))
   .pipe(gulp.dest('./'))
+  .on('error', done)
+  .on('finish', done)
 })
 
 /**
  * Bump Minor Task
  */
-gulp.task('bump:minor', () => {
+gulp.task('bump:minor', (done) => {
   gulp.src(packageFilePath)
   .pipe(bump({type: 'minor'}))
   .pipe(gulp.dest('./'))
+  .on('error', done)
+  .on('finish', done)
 })
 
 /**
  * Bump Major Task
  */
-gulp.task('bump:major', () => {
+gulp.task('bump:major', (done) => {
   gulp.src(packageFilePath)
   .pipe(bump({type: 'major'}))
   .pipe(gulp.dest('./'))
+  .on('error', done)
+  .on('finish', done)
 })
 
 /**
