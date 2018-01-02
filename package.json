@@ -1,7 +1,7 @@
 {
   "name": "generate-swap-project",
   "description": "A generator for SWAP projects",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/rbecheras/generate-swap-project",
   "author": "Rémi Becheras (https://github.com/rbecheras)",
   "repository": "rbecheras/generate-swap-project",
@@ -63,6 +63,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.1.2",
     "chalk": "^2.3.0",
     "delete": "^1.1.0",
     "generate": "^0.14.0",

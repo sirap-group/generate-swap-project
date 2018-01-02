@@ -1,7 +1,7 @@
 import 'mocha'
 import fs from 'fs'
 import path from 'path'
-import assert from 'assert'
+import chai from 'chai'
 import generate from 'generate'
 import npm from 'npm-install-global'
 import del from 'delete'
@@ -11,6 +11,7 @@ import generator from '../lib/generator'
 
 let app
 
+const expect = chai.expect
 const isCI = process.env.CI
 const isTravis = isCI || process.env.TRAVIS
 // const fixtures = path.resolve.bind(path, __dirname, 'fixtures')
@@ -36,8 +37,8 @@ describe('generate-swap-project', function () {
   describe('tasks', function () {
     it('should extend tasks onto the instance', function () {
       app.use(generator)
-      assert(app.tasks.hasOwnProperty('default'))
-      assert(app.tasks.hasOwnProperty('swap-project'))
+      expect(app.tasks).has.property('default')
+      expect(app.tasks).has.property('swap-project')
     })
 
     it('should run the `default` task with .build', function (cb) {
@@ -151,7 +152,8 @@ function exists (name, cb) {
 
     fs.stat(filepath, function (err, stat) {
       if (err) return cb(err)
-      assert(stat)
+      // eslint-disable-next-line no-unused-expressions
+      expect(stat).to.exist
       del(actual(), cb)
     })
   }
