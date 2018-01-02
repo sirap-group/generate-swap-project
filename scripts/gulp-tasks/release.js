@@ -73,7 +73,7 @@ gulp.task('gitCommitPackage', (done) => {
  * Git Tag Task
  */
 gulp.task('gitTag', (done) => {
-  shell.exec('git tag v' + packageTag, done)
+  shell.exec(`git tag v${packageTag}`, done)
 })
 
 /**
