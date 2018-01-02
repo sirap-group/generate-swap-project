@@ -57,6 +57,25 @@ gulp.task('getPackageTag', done => {
 })
 
 /**
+ * Git Commit Package.json Task
+ */
+gulp.task('gitCommitPackage', (done) => {
+  shell.exec(`git add ${packageFilePath}`, err => {
+    if (err) {
+      done(err)
+    } else {
+      shell.exec(`git commit -m "Release v${packageTag}"`, err => {
+        if (err) {
+          done(err)
+        } else {
+
+        }
+      })
+    }
+  })
+})
+
+/**
  * Git Tag Task
  */
 gulp.task('gitTag', (done) => {
