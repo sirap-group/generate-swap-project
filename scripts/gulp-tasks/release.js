@@ -3,6 +3,7 @@ const bump = require('gulp-bump')
 const shell = require('shelljs')
 const runSequence = require('run-sequence')
 const jsonfile = require('jsonfile')
+const chalk = require('chalk')
 
 // Change working dir to come back to the project root
 const workingDir = '../../'
@@ -28,6 +29,21 @@ gulp.task('publish', (done) => {
       done(err)
     } else {
       shell.exec('yarn publish . --new-version ' + pkg.version, done)
+    }
+  })
+})
+
+/**
+ * Git Is Repo Clean Task
+ */
+gulp.task('gitIsRepoClean', (done) => {
+  shell.exec('git diff --exit-code > /dev/null && git diff --exit-code > /dev/null --cached', err => {
+    if (err) {
+      console.log(chalk.red('ERROR: Git repository is not clean. Please commit or stash your changes before trying to release a new version.'))
+      done(err)
+    } else {
+      console.log(chalk.green('Your git repository is clean. Ok to continue.'))
+      done()
     }
   })
 })
