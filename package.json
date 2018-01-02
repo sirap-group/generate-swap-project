@@ -1,7 +1,7 @@
 {
   "name": "generate-swap-project",
   "description": "A generator for SWAP projects",
-  "version": "0.1.2-2",
+  "version": "0.2.0",
   "homepage": "https://github.com/rbecheras/generate-swap-project",
   "author": "Rémi Becheras (https://github.com/rbecheras)",
   "repository": "rbecheras/generate-swap-project",
