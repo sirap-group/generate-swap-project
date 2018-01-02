@@ -1,5 +1,3 @@
-const path = require('path')
-
 const gulp = require('gulp')
 const bump = require('gulp-bump')
 const shell = require('shelljs')
@@ -11,7 +9,6 @@ const workingDir = '../../'
 process.chdir(workingDir)
 
 const packageFilePath = './package.json'
-let newTag
 
 gulp.task('default', ['release:test'])
 
