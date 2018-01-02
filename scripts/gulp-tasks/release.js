@@ -64,13 +64,7 @@ gulp.task('gitCommitPackage', (done) => {
     if (err) {
       done(err)
     } else {
-      shell.exec(`git commit -m "Release v${packageTag}"`, err => {
-        if (err) {
-          done(err)
-        } else {
-
-        }
-      })
+      shell.exec(`git commit -m "Release v${packageTag}"`, done)
     }
   })
 })
