@@ -60,13 +60,7 @@ gulp.task('getPackageTag', done => {
  * Git Tag Task
  */
 gulp.task('gitTag', (done) => {
-  jsonfile.readFile(packageFilePath, (err, pkg) => {
-    if (err) {
-      done(err)
-    } else {
-      shell.exec('git tag v' + pkg.version, done)
-    }
-  })
+  shell.exec('git tag v' + packageTag, done)
 })
 
 /**
