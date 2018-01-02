@@ -1,10 +1,12 @@
 import 'mocha'
-import assert from 'assert'
+import chai from 'chai'
 import generate from 'generate'
 
 import generator from '../lib/generator'
 
 let app
+
+const expect = chai.expect
 
 describe('generate-swap-project', function () {
   beforeEach(function () {
@@ -14,8 +16,8 @@ describe('generate-swap-project', function () {
   describe('plugin', function () {
     it('should add tasks to the instance', function () {
       app.use(generator)
-      assert(app.tasks.hasOwnProperty('default'))
-      assert(app.tasks.hasOwnProperty('swap-project'))
+      expect(app.tasks).has.property('default')
+      expect(app.tasks).has.property('swap-project')
     })
 
     it('should only register the plugin once', function (cb) {
@@ -28,7 +30,7 @@ describe('generate-swap-project', function () {
       app.use(generator)
       app.use(generator)
       app.use(generator)
-      assert.equal(count, 1)
+      expect(count).to.equal(1)
       cb()
     })
   })
