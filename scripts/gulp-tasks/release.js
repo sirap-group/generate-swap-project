@@ -39,8 +39,7 @@ gulp.task('publish', (done) => {
 gulp.task('gitIsRepoClean', (done) => {
   shell.exec('git diff --exit-code > /dev/null && git diff --exit-code > /dev/null --cached', err => {
     if (err) {
-      console.log(chalk.red('ERROR: Git repository is not clean. Please commit or stash your changes before trying to release a new version.'))
-      done(err)
+      done(chalk.red('Git repository is not clean. Please commit or stash your changes before trying to release a new version.'))
     } else {
       console.log(chalk.green('Your git repository is clean. Ok to continue.'))
       done()
