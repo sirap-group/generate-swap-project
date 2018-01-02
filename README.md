@@ -1,11 +1,19 @@
-# generate-swap-project [![NPM version](https://badge.fury.io/js/generate-swap-project.svg)](https://npmjs.org/package/generate-swap-project) [![Build Status](https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master)](https://travis-ci.org/rbecheras/generate-swap-project) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# generate-swap-project
 
 <p style="text-align:center">
-  By <img src="src/assets/img/brand.png"></img>
-  <br/>
+  By <img src="src/assets/img/brand.png"/><br/>
   <span style="font-weight: bold; font-style: italic; font-size:1.5em">
     −− A generator for SWAP projects −−
-  </span>
+  </span><br>
+  <a href="https://npmjs.org/package/generate-swap-project" target="_blank">
+    <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-project.svg"/>
+  </a>
+  <a href="https://travis-ci.org/rbecheras/generate-swap-project" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master"/>
+  </a>
+  <a href="https://standardjs.com" target="_blank">
+    <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
+  </a>
 </p>
 
 ## Installation
