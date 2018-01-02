@@ -80,7 +80,13 @@ gulp.task('gitTag', (done) => {
  * Git Push Task
  */
 gulp.task('gitPush', (done) => {
-  shell.exec('git push --tags origin', done)
+  shell.exec(`git push origin $(git name-rev --name-only HEAD)`, err => {
+    if (err) {
+      done(err)
+    } else {
+      shell.exec(`git push origin v${packageTag}`, done)
+    }
+  })
 })
 
 /**
