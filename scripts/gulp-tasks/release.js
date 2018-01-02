@@ -137,26 +137,26 @@ gulp.task('bump:major', (done) => {
  * Release Prerelease Task
  */
 gulp.task('release:prerelease', done => {
-  runSequence('gitIsRepoClean', 'build', 'bump:prerelease', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:prerelease', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Path Task
  */
 gulp.task('release:patch', done => {
-  runSequence('gitIsRepoClean', 'build', 'bump:patch', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:patch', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Minor Task
  */
 gulp.task('release:minor', done => {
-  runSequence('gitIsRepoClean', 'build', 'bump:minor', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:minor', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Major Task
  */
 gulp.task('release:major', done => {
-  runSequence('gitIsRepoClean', 'build', 'bump:major', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:major', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
