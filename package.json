@@ -13,7 +13,8 @@
     "generator.js",
     "index.js",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "dist/"
   ],
   "main": "index.js",
   "engines": {
@@ -37,7 +38,12 @@
     "pipeline:build": "yarn lint && yarn clear && yarn build",
     "pipeline:build:tests": "yarn pipeline:build:lib && yarn build:tests",
     "pipeline:build:lib": "yarn lint && yarn clear && yarn build:lib",
-    "pipeline:build:docs": "yarn lint && yarn build:docs"
+    "pipeline:build:docs": "yarn lint && yarn build:docs",
+    "release": "yarn gulp -f ./scripts/gulp-tasks/release.js release:patch",
+    "release:patch": "yarn gulp -f ./scripts/gulp-tasks/release.js release:patch",
+    "release:minor": "yarn gulp -f ./scripts/gulp-tasks/release.js release:minor",
+    "release:major": "yarn gulp -f ./scripts/gulp-tasks/release.js release:major",
+    "release:prerelease": "yarn gulp -f ./scripts/gulp-tasks/release.js release:prerelease"
   },
   "keywords": [
     "generate",
@@ -60,9 +66,14 @@
     "delete": "^1.1.0",
     "generate": "^0.14.0",
     "generate-dest": "^0.1.4",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^3.0.0",
+    "gulp-cli": "^2.0.0",
     "mocha": "^4.0.1",
     "npm-install-global": "^1.0.0",
     "rimraf": "^2.6.2",
+    "run-sequence": "^2.2.0",
+    "shelljs": "^0.7.8",
     "standard": "^10.0.3"
   },
   "dependencies": {

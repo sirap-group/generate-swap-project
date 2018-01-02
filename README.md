@@ -106,6 +106,23 @@ $ yarn pipeline:test
 | `yarn pipeline:build:tests` | Run the required jobs to build the docs, then build the docs |
 | `yarn pipeline:build:lib` | Run the required jobs to build the docs, then build the docs |
 | `yarn pipeline:build:docs` | **[TODO]** Run the required jobs to build the docs, then build the docs |
+| `yarn release` | An alias to `yarn release:patch` |
+| `yarn release:prerelease` | Release and publish a new semver version (x.y.z-rc+1)|
+| `yarn release:patch` | Release and publish a new patch semver version (`x.y.z+1`)|
+| `yarn release:minor` | Release and publish a new minor semver version (`x.y+1.z=0`)|
+| `yarn release:major` | Release and publish a new major semver version (`x+1.y=0.z=0`)|
+
+#### Releasing a new version
+
+The task `yarn pipeline:build` generate a `./dist` folder in the repository's root directory but this folder is not part of the git repository (there is an entry in the `.gitignore` file). However the dist folder is included in the `package.json#files` field.
+
+Thus to release a new, lets say, "patch" version, just run:
+
+```sh
+$ yarn release:patch
+```
+
+The whole build pipeline is run locally (lint, transpile, test) and then a new git tag and a new npm tag are pushed up.
 
 ## License
 
