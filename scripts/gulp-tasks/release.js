@@ -4,6 +4,7 @@ const gulp = require('gulp')
 const bump = require('gulp-bump')
 const shell = require('shelljs')
 const runSequence = require('run-sequence')
+const jsonfile = require('jsonfile')
 
 // Change working dir to come back to the project root
 const workingDir = '../../'
@@ -25,15 +26,26 @@ gulp.task('build', (done) => {
  * Yarn Publish Task
  */
 gulp.task('publish', (done) => {
-  newTag = require(path.resolve(packageFilePath))
-  shell.exec('yarn publish . --new-version ' + newTag, done)
+  jsonfile.readFile(packageFilePath, (err, pkg) => {
+    if (err) {
+      done(err)
+    } else {
+      shell.exec('yarn publish . --new-version ' + pkg.version, done)
+    }
+  })
 })
 
 /**
  * Git Tag Task
  */
 gulp.task('gitTag', (done) => {
-  shell.exec('git tag ' + newTag, done)
+  jsonfile.readFile(packageFilePath, (err, pkg) => {
+    if (err) {
+      done(err)
+    } else {
+      shell.exec('git tag v' + pkg.version, done)
+    }
+  })
 })
 
 /**
