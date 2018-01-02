@@ -38,7 +38,12 @@
     "pipeline:build": "yarn lint && yarn clear && yarn build",
     "pipeline:build:tests": "yarn pipeline:build:lib && yarn build:tests",
     "pipeline:build:lib": "yarn lint && yarn clear && yarn build:lib",
-    "pipeline:build:docs": "yarn lint && yarn build:docs"
+    "pipeline:build:docs": "yarn lint && yarn build:docs",
+    "release": "yarn gulp -f ./scripts/gulp-tasks/release.js release:patch",
+    "release:patch": "yarn gulp -f ./scripts/gulp-tasks/release.js release:patch",
+    "release:minor": "yarn gulp -f ./scripts/gulp-tasks/release.js release:minor",
+    "release:major": "yarn gulp -f ./scripts/gulp-tasks/release.js release:major",
+    "release:prerelease": "yarn gulp -f ./scripts/gulp-tasks/release.js release:prerelease"
   },
   "keywords": [
     "generate",
