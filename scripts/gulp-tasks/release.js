@@ -25,13 +25,7 @@ gulp.task('build', (done) => {
  * Yarn Publish Task
  */
 gulp.task('publish', (done) => {
-  jsonfile.readFile(packageFilePath, (err, pkg) => {
-    if (err) {
-      done(err)
-    } else {
-      shell.exec('yarn publish . --new-version ' + pkg.version, done)
-    }
-  })
+  shell.exec(`yarn publish . --new-version ${packageTag}`, done)
 })
 
 /**
