@@ -10,6 +10,7 @@ const workingDir = '../../'
 process.chdir(workingDir)
 
 const packageFilePath = './package.json'
+let newTag
 
 gulp.task('default', ['release:test'])
 
@@ -21,11 +22,25 @@ gulp.task('build', (done) => {
 })
 
 /**
- * Build Alias Task
+ * Yarn Publish Task
  */
 gulp.task('publish', (done) => {
-  const tag = require(path.resolve(packageFilePath))
-  shell.exec('yarn publish . --new-version ' + tag, done)
+  newTag = require(path.resolve(packageFilePath))
+  shell.exec('yarn publish . --new-version ' + newTag, done)
+})
+
+/**
+ * Git Tag Task
+ */
+gulp.task('gitTag', (done) => {
+  shell.exec('git tag ' + newTag, done)
+})
+
+/**
+ * Git Push Task
+ */
+gulp.task('gitPush', (done) => {
+  shell.exec('git push --tags origin', done)
 })
 
 /**
@@ -68,26 +83,26 @@ gulp.task('bump:major', () => {
  * Release Prerelease Task
  */
 gulp.task('release:prerelease', done => {
-  runSequence('build', 'bump:prerelease', 'publish', done)
+  runSequence('build', 'bump:prerelease', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Path Task
  */
 gulp.task('release:patch', done => {
-  runSequence('build', 'bump:patch', 'publish', done)
+  runSequence('build', 'bump:patch', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Minor Task
  */
 gulp.task('release:minor', done => {
-  runSequence('build', 'bump:minor', 'publish', done)
+  runSequence('build', 'bump:minor', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Major Task
  */
 gulp.task('release:major', done => {
-  runSequence('build', 'bump:major', 'publish', done)
+  runSequence('build', 'bump:major', 'gitTag', 'gitPush', 'publish', done)
 })
