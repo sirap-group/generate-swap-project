@@ -1,17 +1,16 @@
-const path = require('path')
-
 const gulp = require('gulp')
 const bump = require('gulp-bump')
 const shell = require('shelljs')
 const runSequence = require('run-sequence')
 const jsonfile = require('jsonfile')
+const chalk = require('chalk')
 
 // Change working dir to come back to the project root
 const workingDir = '../../'
 process.chdir(workingDir)
 
 const packageFilePath = './package.json'
-let newTag
+let packageTag
 
 gulp.task('default', ['release:test'])
 
@@ -26,11 +25,52 @@ gulp.task('build', (done) => {
  * Yarn Publish Task
  */
 gulp.task('publish', (done) => {
+  shell.exec(`yarn publish . --new-version ${packageTag}`, done)
+})
+
+/**
+ * Git Is Repo Clean Task
+ */
+gulp.task('gitIsRepoClean', (done) => {
+  shell.exec('git diff --exit-code > /dev/null && git diff --exit-code > /dev/null --cached', err => {
+    if (err) {
+      done(chalk.red('Git repository is not clean. Please commit or stash your changes before trying to release a new version.'))
+    } else {
+      console.log(chalk.green('Your git repository is clean. Ok to continue.'))
+      done()
+    }
+  })
+})
+
+/**
+ * Get tag from package file
+ */
+gulp.task('getPackageTag', done => {
   jsonfile.readFile(packageFilePath, (err, pkg) => {
     if (err) {
       done(err)
     } else {
-      shell.exec('yarn publish . --new-version ' + pkg.version, done)
+      packageTag = pkg.version
+      done()
+    }
+  })
+})
+
+/**
+ * Git Commit Package.json Task
+ */
+gulp.task('gitCommitPackage', (done) => {
+  shell.exec(`git add ${packageFilePath}`, err => {
+    if (err) {
+      done(err)
+    } else {
+      shell.exec(`git commit -m "Release v${packageTag}"`, err => {
+        if (err) {
+          done(err)
+        } else {
+
+        }
+      })
     }
   })
 })
@@ -39,13 +79,7 @@ gulp.task('publish', (done) => {
  * Git Tag Task
  */
 gulp.task('gitTag', (done) => {
-  jsonfile.readFile(packageFilePath, (err, pkg) => {
-    if (err) {
-      done(err)
-    } else {
-      shell.exec('git tag v' + pkg.version, done)
-    }
-  })
+  shell.exec('git tag v' + packageTag, done)
 })
 
 /**
@@ -103,26 +137,26 @@ gulp.task('bump:major', (done) => {
  * Release Prerelease Task
  */
 gulp.task('release:prerelease', done => {
-  runSequence('build', 'bump:prerelease', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:prerelease', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Path Task
  */
 gulp.task('release:patch', done => {
-  runSequence('build', 'bump:patch', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:patch', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Minor Task
  */
 gulp.task('release:minor', done => {
-  runSequence('build', 'bump:minor', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:minor', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
 
 /**
  * Release Major Task
  */
 gulp.task('release:major', done => {
-  runSequence('build', 'bump:major', 'gitTag', 'gitPush', 'publish', done)
+  runSequence('gitIsRepoClean', 'build', 'bump:major', 'getPackageTag', 'gitCommitPackage', 'gitTag', 'gitPush', 'publish', done)
 })
