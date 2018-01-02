@@ -112,6 +112,18 @@ $ yarn pipeline:test
 | `yarn release:minor` | Release and publish a new minor semver version (`x.y+1.z=0`)|
 | `yarn release:major` | Release and publish a new major semver version (`x+1.y=0.z=0`)|
 
+#### Releasing a new version
+
+The task `yarn pipeline:build` generate a `./dist` folder in the repository's root directory but this folder is not part of the git repository (there is an entry in the `.gitignore` file). However the dist folder is included in the `package.json#files` field.
+
+Thus to release a new, lets say, "patch" version, just run:
+
+```sh
+$ yarn release:patch
+```
+
+The whole build pipeline is run locally (lint, transpile, test) and then a new git tag and a new npm tag are pushed up.
+
 ## License
 
 MIT © [Rémi Becheras](https://github.com/rbecheras)
