@@ -14,7 +14,10 @@
     "index.js",
     "LICENSE",
     "README.md",
-    "dist/"
+    "dist/",
+    "templates",
+    "package.json",
+    "yarn.lock"
   ],
   "main": "index.js",
   "engines": {
