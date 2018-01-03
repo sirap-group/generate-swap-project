@@ -28,7 +28,7 @@ export default function (app) {
    * @name file
    * @api public
    */
-  task(app, 'package', '$package.json')
+  task(app, 'package', 'generate-swap-package/$package.json')
 
   /**
    * Run the `package` task
