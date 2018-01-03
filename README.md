@@ -34,6 +34,33 @@ Should scaffold the project in the destination path you choose when asked.
 
 ![Usage example](src/assets/img/screenshot-usage-example.png)
 
+### Available Tasks
+
+#### `default`
+
+
+```
+$ gen swap-project
+```
+
+or
+
+```
+$ gen swap-project:default
+```
+
+#### `swap-project:testfile`
+
+```
+$ gen swap-project:testfile
+```
+
+#### `swap-project:package`
+
+```
+$ gen swap-project:package
+```
+
 ## Contribute
 
 ### Codebase
