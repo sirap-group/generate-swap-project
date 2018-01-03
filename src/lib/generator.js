@@ -3,6 +3,9 @@ import extend from 'extend'
 import path from 'path'
 import Logger from './utils/Logger'
 
+import generateDefaults from 'generate-defaults'
+import generateDest from 'generate-dest'
+
 const log = new Logger('generate-swap-project')
 
 export default function (app) {
@@ -17,12 +20,12 @@ export default function (app) {
    * Plugins
    */
 
-  app.use(require('generate-defaults'))
+  app.use(generateDefaults)
 
   /**
    * Micro generators (as plugins)
    */
-  app.register('destination-directory', require('generate-dest'))
+  app.register('destination-directory', generateDest)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
