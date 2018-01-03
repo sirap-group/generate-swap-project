@@ -34,9 +34,9 @@ Should scaffold the project in the destination path you choose when asked.
 
 ![Usage example](src/assets/img/screenshot-usage-example.png)
 
-### Available Tasks
+## Available Tasks
 
-#### `default`
+### `default`
 
 
 ```
@@ -49,13 +49,13 @@ or
 $ gen swap-project:default
 ```
 
-#### `swap-project:testfile`
+### `swap-project:testfile`
 
 ```
 $ gen swap-project:testfile
 ```
 
-#### `swap-project:package`
+### `swap-project:package`
 
 ```
 $ gen swap-project:package
