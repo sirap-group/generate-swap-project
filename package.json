@@ -87,6 +87,7 @@
     "extend": "^3.0.1",
     "generate-defaults": "^0.6.6",
     "generate-dest": "^0.1.4",
+    "generate-package": "^0.7.3",
     "is-valid-app": "^0.3.0",
     "prettier-inspect": "^1.0.0"
   },
