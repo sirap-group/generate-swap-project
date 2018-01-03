@@ -31,13 +31,13 @@ export default function (app) {
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
    *
    * ```sh
-   * $ gen swap-project:swap-project
+   * $ gen swap-project:project
    * ```
-   * @name swap-project
+   * @name project
    * @api public
    */
 
-  app.task('swap-project', function (cb) {
+  app.task('project', function (cb) {
     app.generate(['destination-directory:default', 'testfile'], cb)
   })
 
@@ -64,8 +64,8 @@ export default function (app) {
    * @api public
    */
 
-  app.task('default', ['swap-project'])
-};
+  app.task('default', ['project'])
+}
 
 /**
  * Create a task with the given `name` and glob `pattern`

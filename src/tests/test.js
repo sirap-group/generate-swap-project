@@ -38,7 +38,7 @@ describe('generate-swap-project', function () {
     it('should extend tasks onto the instance', function () {
       app.use(generator)
       expect(app.tasks).has.property('default')
-      expect(app.tasks).has.property('swap-project')
+      expect(app.tasks).has.property('project')
     })
 
     it('should run the `default` task with .build', function (cb) {
@@ -60,7 +60,7 @@ describe('generate-swap-project', function () {
 
     it('should run the default task using the `swap-project` generator alias (local generator.js)', function (cb) {
       app.use(generator)
-      app.generate('swap-project', exists('test-file.txt', cb))
+      app.generate('project', exists('test-file.txt', cb))
     })
   })
 
@@ -72,7 +72,7 @@ describe('generate-swap-project', function () {
 
     it('should run the `swap-project` task', function (cb) {
       app.register('swap-project', generator)
-      app.generate('swap-project:swap-project', exists('test-file.txt', cb))
+      app.generate('swap-project:project', exists('test-file.txt', cb))
     })
 
     it('should run the `default` task when defined explicitly', function (cb) {
@@ -103,11 +103,11 @@ describe('generate-swap-project', function () {
       app.generate('foo.swap-project:default', exists('test-file.txt', cb))
     })
 
-    it('should run the `generator:swap-project` task', function (cb) {
+    it('should run the `generator:project` task when defined explicitly', function (cb) {
       app.register('foo', function (foo) {
         foo.register('swap-project', generator)
       })
-      app.generate('foo.swap-project:swap-project', exists('test-file.txt', cb))
+      app.generate('foo.swap-project:project', exists('test-file.txt', cb))
     })
 
     it('should work with nested sub-generators', function (cb) {

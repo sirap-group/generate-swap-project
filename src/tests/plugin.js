@@ -17,7 +17,7 @@ describe('generate-swap-project', function () {
     it('should add tasks to the instance', function () {
       app.use(generator)
       expect(app.tasks).has.property('default')
-      expect(app.tasks).has.property('swap-project')
+      expect(app.tasks).has.property('project')
     })
 
     it('should only register the plugin once', function (cb) {
