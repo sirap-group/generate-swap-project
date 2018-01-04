@@ -24,6 +24,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
+    "bdd": "yarn gulp -f scripts/gulp-tasks/watch.js watch:bdd",
     "clear": "yarn rimraf build dist",
     "lint": "yarn lint:esnext",
     "lint:esnext": "yarn standard src/*.js src/**/*.js",
@@ -73,6 +74,7 @@
     "gulp": "^3.9.1",
     "gulp-bump": "^3.0.0",
     "gulp-cli": "^2.0.0",
+    "gulp-watch": "^4.3.11",
     "jsonfile": "^4.0.0",
     "mocha": "^4.0.1",
     "npm-install-global": "^1.0.0",
