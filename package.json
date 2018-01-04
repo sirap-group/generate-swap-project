@@ -24,6 +24,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
+    "bdd": "yarn gulp -f scripts/gulp-tasks/watch.js watch:bdd",
     "clear": "yarn rimraf build dist",
     "lint": "yarn lint:esnext",
     "lint:esnext": "yarn standard src/*.js src/**/*.js",
