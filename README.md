@@ -127,6 +127,9 @@ $ yarn pipeline:test
 | `yarn lint` | Lint source files |
 | `yarn lint:esnext` | Lint ESNext source files |
 | `yarn build` | Build the whole distribution |
+| `yarn build:assets` | Build all the assets |
+| `yarn build:assets:img` | Build the images assets |
+| `yarn build:assets:templates` | Build the templates assets |
 | `yarn build:lib` | Build only the lib |
 | `yarn build:tests` | Build only the tests |
 | `yarn build:docs` | **[TODO]** Build only the docs |
