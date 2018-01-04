@@ -1,8 +1,6 @@
 import isValid from 'is-valid-app'
 import helperDate from 'helper-date'
 
-import promptTask from '../../tasks/prompt'
-
 import { task } from '../../utils/utils'
 import { escapeQuotes } from '../../utils/helpers'
 import Logger from '../../utils/Logger'
@@ -20,8 +18,6 @@ export default function (app) {
   app.helper('escapeQuotes', escapeQuotes)
 
   app.use(generateDefaults)
-
-  app.task('prompt', promptTask(app))
 
   /**
    * Write a `package.json` file to the current working directory.
@@ -50,5 +46,5 @@ export default function (app) {
    * @name file
    * @api public
    */
-  app.task('default', ['prompt', 'package'])
+  app.task('default', ['package'])
 }
