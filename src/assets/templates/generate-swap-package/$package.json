@@ -5,7 +5,7 @@ rename:
 ---
 {
   "name": "<%= ask('name') %>",
-  "customfield": "<%= ask('customfield') %>",
+  "customfield": "<%= ask('customfield', 'ChampPerso') %>",
   "description": "<%= escapeQuotes(ask('description')) %>",
   "version": "<%= ask('version') %>",
   "homepage": "<%= ask('homepage') %>",

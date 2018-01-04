@@ -16,8 +16,9 @@ process.chdir(workingDir)
 gulp.task('watch:bdd', function (done) {
   const files = [
     // 'package.json', // once task splitted
-    'src/**/*.js',
-    'templates/**/*.*'
+    'src/lib/**/*.js',
+    'src/tests/**/*.js',
+    'src/assets/**/*.*'
     // 'scripts/**/*.js' // once task splitted
   ]
 
