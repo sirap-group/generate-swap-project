@@ -23,11 +23,18 @@ export default function (app) {
       return
     }
 
+    // Load the package a an object
     const pkg = JSON.parse(file.content)
+
+    // Set the package private if --private
     if (app.options.private) {
       pkg.private = true
     }
+
+    // Format package.json#files as an array
     pkg.files = pkg.files.split(',')
+    // Format package.json#keywords as an array
+    pkg.keywords = pkg.keywords.split(',')
 
     file.contents = Buffer.from(JSON.stringify(pkg, null, 2))
     next()
