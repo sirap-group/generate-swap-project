@@ -17,6 +17,14 @@ rename:
     "node": ">=4"
   },
   "license": "<%= ask('license', {default: 'MIT'}) %>",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "dist/",
+    "package.json",
+    "yarn.lock"
+  ],
   "scripts": {
     "test": "mocha"
   },
