@@ -17,15 +17,8 @@ rename:
     "node": ">=4"
   },
   "license": "<%= ask('license', {default: 'MIT'}) %>",
-  "main": "<%= ask('mainFile', {default: 'index.js'}) %>",
-  "files": [
-    "index.js",
-    "LICENSE",
-    "README.md",
-    "dist/",
-    "package.json",
-    "yarn.lock"
-  ],
+  "main": "<%= ask('main', {default: 'index.js'}) %>",
+  "files": "<%= arrayify(ask('files')) %>",
   "scripts": {
     "test": "mocha"
   },
