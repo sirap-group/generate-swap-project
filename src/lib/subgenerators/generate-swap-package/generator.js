@@ -17,6 +17,22 @@ export default function (app) {
   app.helper('date', helperDate)
   app.helper('escapeQuotes', escapeQuotes)
 
+  app.postRender(/package\.json$/, (file, next) => {
+    if (!file.basename === 'package.json') {
+      next()
+      return
+    }
+
+    const pkg = JSON.parse(file.content)
+    if (app.options.private) {
+      pkg.private = true
+    }
+    pkg.files = pkg.files.split(',')
+
+    file.contents = Buffer.from(JSON.stringify(pkg, null, 2))
+    next()
+  })
+
   app.use(generateDefaults)
 
   /**
