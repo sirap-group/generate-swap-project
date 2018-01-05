@@ -144,13 +144,15 @@ export default async app => {
     const {files} = await askPromise(['files'])
 
     app.question('additionnalFiles', {
-      message: 'Additionnal files (space separated) ?'
+      message: 'Additionnal files (comma separated) ?'
     })
 
     const {additionnalFiles} = await askPromise('additionnalFiles')
 
     if (additionnalFiles && additionnalFiles.length) {
-      additionnalFiles.split(' ').forEach(adFile => files.push(adFile))
+      additionnalFiles.split(',')
+      .map(s => s.trim())
+      .forEach(adFile => files.push(adFile))
     }
 
     app.base.data({files})
