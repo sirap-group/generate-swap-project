@@ -94,6 +94,7 @@
     "extend": "^3.0.1",
     "generate-defaults": "^0.6.6",
     "generate-dest": "^0.1.4",
+    "generate-git": "^0.2.0",
     "generate-package": "^0.7.3",
     "gulp-normalize-pkg": "^0.1.2",
     "helper-date": "^1.0.1",
