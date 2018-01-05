@@ -154,7 +154,28 @@ export default async app => {
     }
 
     app.base.data({files})
-    done()
+
+    const defaultKeywords = [
+      'SWAP',
+      'SWAP App'
+    ]
+    app.choices('keywords', {
+      message: 'Keywords ?',
+      choices: defaultKeywords
+    })
+    app.question('additionnalKeywords', {
+      message: 'Additionnal keywords (comma separated) ?'
+    })
+
+    const {keywords, additionnalKeywords} = await askPromise(['keywords', 'additionnalKeywords'])
+
+    if (additionnalKeywords && additionnalKeywords.length) {
+      additionnalKeywords.split(',')
+      .map(s => s.trim())
+      .forEach(adKeyword => keywords.push(adKeyword))
+    }
+
+    app.base.data({keywords})
   }
 
   async function askPromise (keys) {
