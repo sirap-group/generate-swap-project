@@ -49,10 +49,10 @@ or
 $ gen swap-project:default
 ```
 
-### `swap-project:testfile`
+### `swap-project:prompt`
 
 ```
-$ gen swap-project:testfile
+$ gen swap-project:prompt
 ```
 
 ### `swap-project:package`
