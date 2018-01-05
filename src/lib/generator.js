@@ -38,7 +38,11 @@ export default function (app) {
    */
 
   app.task('project', function (cb) {
-    app.generate(['destination-directory:default', 'testfile'], cb)
+    app.generate([
+      'prompt',
+      'destination-directory:default',
+      'package'
+    ], cb)
   })
 
   app.task('prompt', promptTask(app))
