@@ -5,14 +5,13 @@ rename:
 ---
 {
   "name": "<%= ask('name') %>",
-  "customfield": "<%= ask('customfield', 'ChampPerso') %>",
   "description": "<%= escapeQuotes(ask('description')) %>",
   "version": "<%= ask('version') %>",
   "homepage": "<%= ask('homepage') %>",
   "author": "<%= ask('author.name') %> (<%= ask('author.url') %>)",
-  "repository": "<%= ask('owner') %>/<%= ask('name') %>",
+  "repository": "<%= ask('repository') %>",
   "bugs": {
-    "url": "https://github.com/<%= ask('owner') %>/<%= ask('name') %>/issues"
+    "url": "<%= ask('issues') %>"
   },
   "engines": {
     "node": ">=4"
