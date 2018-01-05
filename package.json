@@ -67,6 +67,8 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.2",
     "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -113,6 +115,8 @@
     "plugins": [
       [
         "transform-runtime",
+        "syntax-async-functions",
+        "transform-regenerator",
         {
           "helpers": false,
           "polyfill": false,
