@@ -17,7 +17,7 @@ export default function (app) {
   app.helper('date', helperDate)
   app.helper('escapeQuotes', escapeQuotes)
 
-  app.postRender(/package\.json$/, packagePostRender)
+  app.postRender(/package\.json$/, packagePostRender(app))
 
   app.use(generateDefaults)
 
