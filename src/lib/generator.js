@@ -1,7 +1,7 @@
 import isValid from 'is-valid-app'
 
 import Logger from './utils/Logger'
-import { task } from './utils/utils'
+// import { task } from './utils/utils'
 
 import generateDefaults from 'generate-defaults'
 import generateDest from 'generate-dest'
