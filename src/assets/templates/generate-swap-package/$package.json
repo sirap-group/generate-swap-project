@@ -100,5 +100,16 @@ rename:
         }
       ]
     ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "build",
+      "dist",
+      "node_modules/**"
+    ],
+    "env": {
+      "mocha": true
+    }
   }
 }
