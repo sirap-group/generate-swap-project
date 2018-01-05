@@ -1,0 +1,24 @@
+---
+layout: false
+rename:
+  basename: 'package.json'
+---
+{
+  "name": "<%= ask('name') %>",
+  "description": "<%= escapeQuotes(ask('description')) %>",
+  "version": "<%= ask('version') %>",
+  "homepage": "<%= ask('homepage') %>",
+  "author": "<%= ask('author.name') %> (<%= ask('author.url') %>)",
+  "repository": "<%= ask('repository') %>",
+  "bugs": {
+    "url": "<%= ask('issues') %>"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "<%= ask('license', {default: 'MIT'}) %>",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": []
+}

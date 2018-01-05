@@ -1,3 +1,5 @@
+const path = require('path')
+
 const gulp = require('gulp')
 const bump = require('gulp-bump')
 const shell = require('shelljs')
@@ -6,7 +8,7 @@ const jsonfile = require('jsonfile')
 const chalk = require('chalk')
 
 // Change working dir to come back to the project root
-const workingDir = '../../'
+const workingDir = path.resolve(path.join(__dirname, '../../'))
 process.chdir(workingDir)
 
 const packageFilePath = './package.json'

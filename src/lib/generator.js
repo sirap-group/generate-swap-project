@@ -1,57 +1,65 @@
 import isValid from 'is-valid-app'
-import extend from 'extend'
-import path from 'path'
+
 import Logger from './utils/Logger'
+// import { task } from './utils/utils'
 
 import generateDefaults from 'generate-defaults'
 import generateDest from 'generate-dest'
+import generatePackage from './subgenerators/generate-swap-package/generator'
+
+import promptTask from './tasks/prompt'
 
 const log = new Logger('generate-swap-project')
 
 export default function (app) {
   if (!isValid(app, 'generate-swap-project')) return
 
-  /**
-   * Listen for errors
-   */
   app.on('error', ::log.error)
 
   /**
    * Plugins
    */
-
   app.use(generateDefaults)
 
   /**
    * Micro generators (as plugins)
    */
   app.register('destination-directory', generateDest)
+  app.register('package', generatePackage)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
    *
    * ```sh
-   * $ gen swap-project:swap-project
+   * $ gen swap-project:project
    * ```
-   * @name swap-project
+   * @name project
    * @api public
    */
 
-  app.task('swap-project', function (cb) {
-    app.generate(['destination-directory:default', 'testfile'], cb)
+  app.task('project', function (cb) {
+    app.generate([
+      'prompt',
+      'destination-directory:default',
+      'package'
+    ], cb)
   })
 
+  app.task('prompt', promptTask(app))
+
   /**
-   * Write a `test-file.txt` file to the current working directory.
+   * Write a `package.json` file to the current working directory.
+   * Call the `package:default` task from the sub generator `generate-swap-package`.
    *
    * ```sh
-   * $ gen swap-project:file
+   * $ gen swap-project:package
    * ```
-   * @name file
+   * @name package
    * @api public
    */
-
-  task(app, 'testfile', 'test-file.txt')
+  app.task('package', function (cb) {
+    app.generate(['package:default'], cb)
+  })
 
   /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
@@ -63,23 +71,5 @@ export default function (app) {
    * @name default
    * @api public
    */
-
-  app.task('default', ['swap-project'])
-};
-
-/**
- * Create a task with the given `name` and glob `pattern`
- */
-
-function task (app, name, pattern, dependencies) {
-  app.task(name, dependencies || [], cb => file(app, pattern))
-}
-
-function file (app, pattern) {
-  const opts = extend({}, app.base.options, app.options)
-  const srcBase = opts.srcBase || path.join(__dirname, '..', '..', 'templates')
-  return app.src(pattern, {cwd: srcBase})
-    .pipe(app.renderFile('*', app.base.cache.data))
-    .pipe(app.conflicts(app.cwd))
-    .pipe(app.dest(app.cwd))
+  app.task('default', ['project'])
 }

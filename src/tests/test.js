@@ -38,46 +38,46 @@ describe('generate-swap-project', function () {
     it('should extend tasks onto the instance', function () {
       app.use(generator)
       expect(app.tasks).has.property('default')
-      expect(app.tasks).has.property('swap-project')
+      expect(app.tasks).has.property('project')
     })
 
     it('should run the `default` task with .build', function (cb) {
       app.use(generator)
-      app.build('default', exists('test-file.txt', cb))
+      app.build('default', exists('package.json', cb))
     })
 
     it('should run the `default` task with .generate', function (cb) {
       app.use(generator)
-      app.generate('default', exists('test-file.txt', cb))
+      app.generate('default', exists('package.json', cb))
     })
   })
 
   describe('swap-project (CLI)', function () {
     it('should run the default task using the `generate-swap-project` name (global install)', function (cb) {
       app.use(generator)
-      app.generate('generate-swap-project', exists('test-file.txt', cb))
+      app.generate('generate-swap-project', exists('package.json', cb))
     })
 
     it('should run the default task using the `swap-project` generator alias (local generator.js)', function (cb) {
       app.use(generator)
-      app.generate('swap-project', exists('test-file.txt', cb))
+      app.generate('project', exists('package.json', cb))
     })
   })
 
   describe('swap-project (API)', function () {
     it('should run the default task on the generator', function (cb) {
       app.register('swap-project', generator)
-      app.generate('swap-project', exists('test-file.txt', cb))
+      app.generate('swap-project', exists('package.json', cb))
     })
 
     it('should run the `swap-project` task', function (cb) {
       app.register('swap-project', generator)
-      app.generate('swap-project:swap-project', exists('test-file.txt', cb))
+      app.generate('swap-project:project', exists('package.json', cb))
     })
 
     it('should run the `default` task when defined explicitly', function (cb) {
       app.register('swap-project', generator)
-      app.generate('swap-project:default', exists('test-file.txt', cb))
+      app.generate('swap-project:default', exists('package.json', cb))
     })
   })
 
@@ -86,28 +86,28 @@ describe('generate-swap-project', function () {
       app.register('foo', function (foo) {
         foo.register('swap-project', generator)
       })
-      app.generate('foo.swap-project', exists('test-file.txt', cb))
+      app.generate('foo.swap-project', exists('package.json', cb))
     })
 
     it('should run the `default` task by default', function (cb) {
       app.register('foo', function (foo) {
         foo.register('swap-project', generator)
       })
-      app.generate('foo.swap-project', exists('test-file.txt', cb))
+      app.generate('foo.swap-project', exists('package.json', cb))
     })
 
     it('should run the `generator:default` task when defined explicitly', function (cb) {
       app.register('foo', function (foo) {
         foo.register('swap-project', generator)
       })
-      app.generate('foo.swap-project:default', exists('test-file.txt', cb))
+      app.generate('foo.swap-project:default', exists('package.json', cb))
     })
 
-    it('should run the `generator:swap-project` task', function (cb) {
+    it('should run the `generator:project` task when defined explicitly', function (cb) {
       app.register('foo', function (foo) {
         foo.register('swap-project', generator)
       })
-      app.generate('foo.swap-project:swap-project', exists('test-file.txt', cb))
+      app.generate('foo.swap-project:project', exists('package.json', cb))
     })
 
     it('should work with nested sub-generators', function (cb) {
@@ -116,7 +116,7 @@ describe('generate-swap-project', function () {
         .register('bar', generator)
         .register('baz', generator)
 
-      app.generate('foo.bar.baz', exists('test-file.txt', cb))
+      app.generate('foo.bar.baz', exists('package.json', cb))
     })
 
     it('should run tasks as a sub-generator', function (cb) {
@@ -124,24 +124,28 @@ describe('generate-swap-project', function () {
       const sub0 = app.register('sub0', generator)
       // eslint-disable-next-line no-unused-vars
       const sub1 = sub0.register('sub1', generator)
-      app.generate('sub0.sub1:testfile', exists('test-file.txt', cb))
+      app.generate('sub0.sub1:package', exists('package.json', cb))
     })
   })
 
   function beforeEachTest (silent, cli) {
     app = generate({silent, cli})
     app.cwd = actual()
+
+    app.option('prompt', false)
+    app.option('check-directory', false)
     app.option('dest', actual())
 
     // see: https://github.com/jonschlinkert/ask-when
     app.option('askWhen', 'not-answered')
 
-    // set default data to use in templates. feel free to remove anything
-    // that isn't used (e.g. if "username" isn't defined in templates, just remove it)
     app.data(pkg)
     app.data('project', pkg)
     app.data('username', 'foo')
     app.data('owner', 'foo')
+    app.data('repository', 'http://githost/namespace/repo.git')
+    app.data('issues', 'http://githost/namespace/repo/issues')
+    app.data('version', 'v5.5.5')
   }
 })
 

@@ -2470,6 +2470,12 @@ data-store@^1.0.0:
     rimraf "^2.6.1"
     union-value "^1.0.0"
 
+date.js@^0.3.1:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/date.js/-/date.js-0.3.2.tgz#69a91d90a5cc91664ff17d5f43f0cb73e615c390"
+  dependencies:
+    debug "~3.1.0"
+
 dateformat-light@^1.0.14:
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/dateformat-light/-/dateformat-light-1.0.17.tgz#ec2f84280829cd3d1e874a3321044e439c82f0cb"
@@ -2489,7 +2495,7 @@ debug-log@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debug-log/-/debug-log-1.0.1.tgz#2307632d4c04382b8df8a32f70b895046d52745f"
 
-debug@3.1.0, debug@^3.0.1, debug@^3.1.0:
+debug@3.1.0, debug@^3.0.1, debug@^3.1.0, debug@~3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -3316,6 +3322,12 @@ first-chunk-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/first-chunk-stream/-/first-chunk-stream-1.0.0.tgz#59bfb50cd905f60d7c394cd3d9acaab4e6ad934e"
 
+first-chunk-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/first-chunk-stream/-/first-chunk-stream-2.0.0.tgz#1bdecdb8e083c0664b91945581577a43a9f31d70"
+  dependencies:
+    readable-stream "^2.0.2"
+
 flagged-respawn@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/flagged-respawn/-/flagged-respawn-1.0.0.tgz#4e79ae9b2eb38bf86b3bb56bf3e0a56aa5fcabd7"
@@ -3486,6 +3498,18 @@ generate-object-property@^1.1.0:
   dependencies:
     is-property "^1.0.0"
 
+generate-package@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/generate-package/-/generate-package-0.7.3.tgz#8fce28f2d7044f08d140cbf040927f9416f2e102"
+  dependencies:
+    generate-defaults "^0.6.6"
+    gulp-choose-files "^0.1.3"
+    gulp-normalize-pkg "^0.1.2"
+    gulp-pick-keys "^0.1.1"
+    helper-date "^0.2.3"
+    is-valid-app "^0.2.1"
+    lazy-cache "^2.0.2"
+
 generate@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/generate/-/generate-0.14.0.tgz#3d93e709fe2365daf4b0635f30d237a96e19f380"
@@ -3603,7 +3627,7 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
-glob-parent@^3.0.0, glob-parent@^3.1.0:
+glob-parent@^3.0.0, glob-parent@^3.0.1, glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
   dependencies:
@@ -3821,6 +3845,14 @@ gulp-bump@^3.0.0:
     semver "^5.3.0"
     through2 "^2.0.1"
 
+gulp-choose-files@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/gulp-choose-files/-/gulp-choose-files-0.1.3.tgz#86b15f0630073ab673d5725beec63eaa148550f9"
+  dependencies:
+    extend-shallow "^2.0.1"
+    question-cache "^0.5.1"
+    through2 "^2.0.1"
+
 gulp-cli@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/gulp-cli/-/gulp-cli-2.0.0.tgz#7f049ad298ed388cda9bd813b5d7062407d62cad"
@@ -3844,6 +3876,25 @@ gulp-cli@^2.0.0:
     v8flags "^3.0.1"
     yargs "^7.1.0"
 
+gulp-normalize-pkg@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/gulp-normalize-pkg/-/gulp-normalize-pkg-0.1.2.tgz#ef6291ddf7a8fa9bf88d030332990e0ca75f04aa"
+  dependencies:
+    extend-shallow "^2.0.1"
+    normalize-pkg "^0.3.13"
+    through2 "^2.0.1"
+
+gulp-pick-keys@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/gulp-pick-keys/-/gulp-pick-keys-0.1.1.tgz#aff2e3554c5475c352d42c8519e2b7fe1c59cf53"
+  dependencies:
+    extend-shallow "^2.0.1"
+    lazy-cache "^2.0.1"
+    log-utils "^0.1.4"
+    object.pick "^1.1.2"
+    question-cache "^0.4.0"
+    through2 "^2.0.1"
+
 gulp-sourcemaps@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/gulp-sourcemaps/-/gulp-sourcemaps-1.6.0.tgz#b86ff349d801ceb56e1d9e7dc7bbcb4b7dee600c"
@@ -3854,7 +3905,7 @@ gulp-sourcemaps@1.6.0:
     through2 "^2.0.0"
     vinyl "^1.0.0"
 
-gulp-util@^3.0.0, gulp-util@^3.0.8:
+gulp-util@^3.0.0, gulp-util@^3.0.7, gulp-util@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -3876,6 +3927,21 @@ gulp-util@^3.0.0, gulp-util@^3.0.8:
     replace-ext "0.0.1"
     through2 "^2.0.0"
     vinyl "^0.5.0"
+
+gulp-watch@^4.3.11:
+  version "4.3.11"
+  resolved "https://registry.yarnpkg.com/gulp-watch/-/gulp-watch-4.3.11.tgz#162fc563de9fc770e91f9a7ce3955513a9a118c0"
+  dependencies:
+    anymatch "^1.3.0"
+    chokidar "^1.6.1"
+    glob-parent "^3.0.1"
+    gulp-util "^3.0.7"
+    object-assign "^4.1.0"
+    path-is-absolute "^1.0.1"
+    readable-stream "^2.2.2"
+    slash "^1.0.0"
+    vinyl "^1.2.0"
+    vinyl-file "^2.0.0"
 
 gulp@^3.9.1:
   version "3.9.1"
@@ -3900,6 +3966,13 @@ gulplog@^1.0.0:
   resolved "https://registry.yarnpkg.com/gulplog/-/gulplog-1.0.0.tgz#e28c4d45d05ecbbed818363ce8f9c5926229ffe5"
   dependencies:
     glogg "^1.0.0"
+
+handlebars-utils@^1.0.4:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/handlebars-utils/-/handlebars-utils-1.0.6.tgz#cb9db43362479054782d86ffe10f47abc76357f9"
+  dependencies:
+    kind-of "^6.0.0"
+    typeof-article "^0.1.1"
 
 har-schema@^1.0.5:
   version "1.0.5"
@@ -4016,6 +4089,23 @@ helper-cache@^0.7.2:
     extend-shallow "^2.0.1"
     lazy-cache "^0.2.3"
     lodash.bind "^3.1.0"
+
+helper-date@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/helper-date/-/helper-date-0.2.3.tgz#d870cabba041d329cc856db20bb8c49674e3ef28"
+  dependencies:
+    date.js "^0.3.1"
+    extend-shallow "^2.0.1"
+    kind-of "^3.1.0"
+    moment "^2.17.1"
+
+helper-date@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/helper-date/-/helper-date-1.0.1.tgz#12fedea3ad8e44a7ca4c4efb0ff4104a5120cffb"
+  dependencies:
+    date.js "^0.3.1"
+    handlebars-utils "^1.0.4"
+    moment "^2.18.1"
 
 helper-slugify@^0.2.0:
   version "0.2.0"
@@ -5357,6 +5447,10 @@ mocha@^4.0.1:
     mkdirp "0.5.1"
     supports-color "4.4.0"
 
+moment@^2.17.1, moment@^2.18.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -5465,7 +5559,7 @@ normalize-path@^2.0.0, normalize-path@^2.0.1:
   dependencies:
     remove-trailing-separator "^1.0.1"
 
-normalize-pkg@^0.3.20:
+normalize-pkg@^0.3.13, normalize-pkg@^0.3.20:
   version "0.3.20"
   resolved "https://registry.yarnpkg.com/normalize-pkg/-/normalize-pkg-0.3.20.tgz#2ee737149517850d9ceff5a6234af5ef89c515a8"
   dependencies:
@@ -5868,7 +5962,7 @@ performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
-pify@^2.0.0:
+pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
 
@@ -6874,6 +6968,13 @@ strip-bom-stream@^1.0.0:
     first-chunk-stream "^1.0.0"
     strip-bom "^2.0.0"
 
+strip-bom-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strip-bom-stream/-/strip-bom-stream-2.0.0.tgz#f87db5ef2613f6968aa545abfe1ec728b6a829ca"
+  dependencies:
+    first-chunk-stream "^2.0.0"
+    strip-bom "^2.0.0"
+
 strip-bom-string@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/strip-bom-string/-/strip-bom-string-0.1.2.tgz#9c6e720a313ba9836589518405ccfb88a5f41b9c"
@@ -7218,6 +7319,12 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typeof-article@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/typeof-article/-/typeof-article-0.1.1.tgz#9f07e733c3fbb646ffa9e61c08debacd460e06af"
+  dependencies:
+    kind-of "^3.1.0"
+
 uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
@@ -7375,6 +7482,17 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vinyl-file@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/vinyl-file/-/vinyl-file-2.0.0.tgz#a7ebf5ffbefda1b7d18d140fcb07b223efb6751a"
+  dependencies:
+    graceful-fs "^4.1.2"
+    pify "^2.3.0"
+    pinkie-promise "^2.0.0"
+    strip-bom "^2.0.0"
+    strip-bom-stream "^2.0.0"
+    vinyl "^1.1.0"
+
 vinyl-fs@^0.3.0:
   version "0.3.14"
   resolved "https://registry.yarnpkg.com/vinyl-fs/-/vinyl-fs-0.3.14.tgz#9a6851ce1cac1c1cea5fe86c0931d620c2cfa9e6"
@@ -7452,7 +7570,7 @@ vinyl@^0.5.0:
     clone-stats "^0.0.1"
     replace-ext "0.0.1"
 
-vinyl@^1.0.0:
+vinyl@^1.0.0, vinyl@^1.1.0, vinyl@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-1.2.0.tgz#5c88036cf565e5df05558bfc911f8656df218884"
   dependencies:

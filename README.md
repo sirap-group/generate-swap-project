@@ -32,7 +32,61 @@ Should scaffold the project in the destination path you choose when asked.
 
 ### Example
 
+#### Usage screenshot
+
 ![Usage example](src/assets/img/screenshot-usage-example.png)
+
+#### Resulting files
+
+```
+$ cat mylab/package.json
+{
+  "name": "mylab",
+  "description": "mylab SWAP app",
+  "version": "v0.1.0",
+  "homepage": "https://gitlab.sirap.fr/rbecheras/mylab",
+  "author": "Rémi Becheras (https://gitlab.sirap.fr/rbecheras)",
+  "repository": "git@gitlab.sirap.fr:rbecheras/mylab.git",
+  "bugs": {
+    "url": "https://gitlab.sirap.fr/rbecheras/mylab/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": []
+}
+```
+
+## Available Tasks
+
+### `default`
+
+
+```
+$ gen swap-project
+```
+
+or
+
+```
+$ gen swap-project:default
+```
+
+### `swap-project:prompt`
+
+```
+$ gen swap-project:prompt
+```
+
+### `swap-project:package`
+
+```
+$ gen swap-project:package
+```
 
 ## Contribute
 
@@ -100,6 +154,9 @@ $ yarn pipeline:test
 | `yarn lint` | Lint source files |
 | `yarn lint:esnext` | Lint ESNext source files |
 | `yarn build` | Build the whole distribution |
+| `yarn build:assets` | Build all the assets |
+| `yarn build:assets:img` | Build the images assets |
+| `yarn build:assets:templates` | Build the templates assets |
 | `yarn build:lib` | Build only the lib |
 | `yarn build:tests` | Build only the tests |
 | `yarn build:docs` | **[TODO]** Build only the docs |
