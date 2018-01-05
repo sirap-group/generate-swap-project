@@ -215,16 +215,6 @@ export default app => {
                       additionnalFiles.split(' ').forEach(adFile => files.push(adFile))
                     }
 
-                    try {
-                      // files = JSON.stringify(files.map(file => `"${file}"`))
-                      files = JSON.stringify(files)
-                      // files = files.slice(2, files.length - 2)
-                      console.log('files:', files)
-                    } catch (err) {
-                      done(err)
-                      return
-                    }
-
                     app.base.data({files})
                     done()
                   })
