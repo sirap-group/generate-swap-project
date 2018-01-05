@@ -146,6 +146,7 @@ describe('generate-swap-project', function () {
     app.data('repository', 'http://githost/namespace/repo.git')
     app.data('issues', 'http://githost/namespace/repo/issues')
     app.data('version', 'v5.5.5')
+    app.data('mainFile', 'index.js')
   }
 })
 
