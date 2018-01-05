@@ -166,7 +166,70 @@ export default app => {
               }
 
               app.base.data(answers)
-              done()
+
+              app.question('main', {
+                message: 'Main file ?',
+                default: 'index.js'
+              })
+
+              app.ask(['main'], (err, answers) => {
+                if (err) {
+                  done(err)
+                  return
+                }
+
+                app.base.data(answers)
+                const {main} = answers
+
+                const defaultFiles = [
+                  main,
+                  'LICENSE',
+                  'README.md',
+                  'dist/',
+                  'package.json',
+                  'yarn.lock'
+                ]
+                app.choices('files', {
+                  message: 'Packaged files ?',
+                  choices: defaultFiles
+                })
+                app.ask(['files'], (err, answers) => {
+                  if (err) {
+                    done(err)
+                    return
+                  }
+
+                  let {files} = answers
+
+                  app.question('additionnalFiles', {
+                    message: 'Additionnal files (space separated) ?'
+                  })
+                  app.ask('additionnalFiles', (err, answers) => {
+                    if (err) {
+                      done(err)
+                      return
+                    }
+
+                    let {additionnalFiles} = answers
+                    if (additionnalFiles && additionnalFiles.length) {
+                      additionnalFiles.split(' ').forEach(adFile => files.push(adFile))
+                    }
+
+                    try {
+                      // files = JSON.stringify(files.map(file => `"${file}"`))
+                      files = JSON.stringify(files)
+                      // files = files.slice(2, files.length - 2)
+                      console.log('files:', files)
+                    } catch (err) {
+                      done(err)
+                      return
+                    }
+
+                    app.base.data({files})
+                    done()
+                  })
+                })
+              })
             })
           })
         })
