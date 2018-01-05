@@ -32,7 +32,34 @@ Should scaffold the project in the destination path you choose when asked.
 
 ### Example
 
+#### Usage screenshot
+
 ![Usage example](src/assets/img/screenshot-usage-example.png)
+
+#### Resulting files
+
+```
+$ cat mylab/package.json
+{
+  "name": "mylab",
+  "description": "mylab SWAP app",
+  "version": "v0.1.0",
+  "homepage": "https://gitlab.sirap.fr/rbecheras/mylab",
+  "author": "Rémi Becheras (https://gitlab.sirap.fr/rbecheras)",
+  "repository": "git@gitlab.sirap.fr:rbecheras/mylab.git",
+  "bugs": {
+    "url": "https://gitlab.sirap.fr/rbecheras/mylab/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": []
+}
+```
 
 ## Available Tasks
 
