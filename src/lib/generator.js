@@ -7,6 +7,8 @@ import generateDefaults from 'generate-defaults'
 import generateDest from 'generate-dest'
 import generatePackage from './subgenerators/generate-swap-package/generator'
 
+import promptTask from './tasks/prompt'
+
 const log = new Logger('generate-swap-project')
 
 export default function (app) {
@@ -38,6 +40,8 @@ export default function (app) {
   app.task('project', function (cb) {
     app.generate(['destination-directory:default', 'testfile'], cb)
   })
+
+  app.task('prompt', promptTask(app))
 
   /**
    * Write a `package.json` file to the current working directory.
