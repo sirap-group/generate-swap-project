@@ -5,6 +5,8 @@ import Logger from './utils/Logger'
 
 import generateDefaults from 'generate-defaults'
 import generateDest from 'generate-dest'
+import generateGit from 'generate-git'
+
 import generatePackage from './subgenerators/generate-swap-package/generator'
 
 import promptTask from './tasks/prompt'
@@ -25,6 +27,7 @@ export default function (app) {
    * Micro generators (as plugins)
    */
   app.register('destination-directory', generateDest)
+  app.register('git', generateGit)
   app.register('package', generatePackage)
 
   /**
@@ -41,7 +44,8 @@ export default function (app) {
     app.generate([
       'prompt',
       'destination-directory:default',
-      'package'
+      'package',
+      'git:default'
     ], cb)
   })
 
