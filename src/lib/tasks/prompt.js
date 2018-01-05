@@ -116,7 +116,7 @@ export default app => {
 
           app.question('version', {
             message: 'Version ?',
-            default: 'v0.1.0'
+            default: '0.1.0'
           })
           app.question('license', {
             message: 'License ?',
