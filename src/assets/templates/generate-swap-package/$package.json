@@ -48,5 +48,5 @@ rename:
     "release:major": "yarn gulp -f ./scripts/gulp-tasks/release.js release:major",
     "release:prerelease": "yarn gulp -f ./scripts/gulp-tasks/release.js release:prerelease"
   },
-  "keywords": "<%= arrayify(ask('keywords')) %>",
+  "keywords": "<%= arrayify(ask('keywords')) %>"
 }
