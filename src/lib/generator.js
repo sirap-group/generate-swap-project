@@ -62,17 +62,6 @@ export default function (app) {
   })
 
   /**
-   * Write a `test-file.txt` file to the current working directory.
-   *
-   * ```sh
-   * $ gen swap-project:file
-   * ```
-   * @name file
-   * @api public
-   */
-  task(app, 'testfile', 'test-file.txt')
-
-  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
