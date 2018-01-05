@@ -48,7 +48,7 @@ export default async app => {
       message: `Git host username ?`
     })
 
-    const {dest, description, githosts, owner} = await app.ask(['dest', 'description', 'githosts', 'owner'])
+    const {dest, description, githosts, owner} = await askPromise(['dest', 'description', 'githosts', 'owner'])
     const defaultHost = (githosts.length > 1) ? 'github.com' : githosts[0]
 
     app.base.data({dest, description, githosts, owner})
@@ -101,7 +101,7 @@ export default async app => {
       default: owner
     })
 
-    let answers = await app.askPromise([ 'homepage', 'issues', 'repository', 'version', 'license', 'author.name', 'author.username' ])
+    let answers = await askPromise([ 'homepage', 'issues', 'repository', 'version', 'license', 'author.name', 'author.username' ])
     app.base.data(answers)
 
     const authorUsername = answers.author.username
@@ -117,7 +117,7 @@ export default async app => {
       default: `https://twitter.com/${authorUsername}`
     })
 
-    answers = await app.askPromise(['author.url', 'author.twitter'])
+    answers = await askPromise(['author.url', 'author.twitter'])
     app.base.data(answers)
 
     app.question('main', {
@@ -125,7 +125,7 @@ export default async app => {
       default: 'index.js'
     })
 
-    const {main} = await app.askPromise(['main'])
+    const {main} = await askPromise(['main'])
     app.base.data({main})
 
     const defaultFiles = [
