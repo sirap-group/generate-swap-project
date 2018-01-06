@@ -74,7 +74,7 @@ export default function (app) {
    * ```sh
    * $ gen swap-project:gitignore
    * ```
-   * @name package
+   * @name gitignore
    * @api public
    */
   app.task('gitignore', function (cb) {
