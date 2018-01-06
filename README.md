@@ -34,7 +34,7 @@ Should scaffold the project in the destination path you choose when asked.
 
 #### Usage screenshot
 
-![Usage example](src/assets/img/screenshot-usage-example.png)
+![Usage example](src/assets/img/usage-screencast.gif)
 
 #### Resulting files
 
@@ -63,7 +63,7 @@ $ cat mylab/package.json
 
 ## Available Tasks
 
-### `default`
+### `swap-project:default`
 
 
 ```
@@ -84,8 +84,47 @@ $ gen swap-project:prompt
 
 ### `swap-project:package`
 
+Generate a `package.json` file.
+
 ```
 $ gen swap-project:package
+```
+
+The file includes:
+
+- basic package.json fields
+    - name
+    - description
+    - version
+    - homepage
+    - author
+    - repository
+    - bugs
+    - license
+    - files
+    - main
+    - engines
+    - keywords
+- dependencies
+- devDependencies
+- 27 yarn scripts
+- babeljs config
+- standardjs config
+
+### `swap-project:git`
+
+Create a local git repository, add all files in the directory and create a first commit.
+
+```
+$ gen swap-project:git
+```
+
+### `swap-project:gitignore`
+
+Generate a file `.gitignore`
+
+```
+$ gen swap-project:gitignore
 ```
 
 ## Contribute

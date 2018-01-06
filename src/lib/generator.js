@@ -8,6 +8,7 @@ import generateDest from 'generate-dest'
 import generateGit from 'generate-git'
 
 import generatePackage from './subgenerators/generate-swap-package/generator'
+import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -29,6 +30,7 @@ export default function (app) {
   app.register('destination-directory', generateDest)
   app.register('git', generateGit)
   app.register('package', generatePackage)
+  app.register('gitignore', generateGitignore)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -44,7 +46,8 @@ export default function (app) {
     app.generate([
       'prompt',
       'destination-directory:default',
-      'package',
+      'package:default',
+      'gitignore:default',
       'git:default'
     ], cb)
   })
@@ -63,6 +66,20 @@ export default function (app) {
    */
   app.task('package', function (cb) {
     app.generate(['package:default'], cb)
+  })
+
+  /**
+   * Write a `.gitignore` file to the current working directory.
+   * Call the `gitignore:default` task from the sub generator `generate-swap-gitignore`.
+   *
+   * ```sh
+   * $ gen swap-project:gitignore
+   * ```
+   * @name gitignore
+   * @api public
+   */
+  app.task('gitignore', function (cb) {
+    app.generate(['gitignore:default'], cb)
   })
 
   /**
