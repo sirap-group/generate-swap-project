@@ -34,7 +34,7 @@ Should scaffold the project in the destination path you choose when asked.
 
 #### Usage screenshot
 
-![Usage example](src/assets/img/screenshot-usage-example.png)
+![Usage example](src/assets/img/usage-screencast.gif)
 
 #### Resulting files
 
