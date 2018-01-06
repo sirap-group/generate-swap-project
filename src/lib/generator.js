@@ -46,8 +46,9 @@ export default function (app) {
     app.generate([
       'prompt',
       'destination-directory:default',
-      'package',
-      'git:default'
+      'package:default',
+      'git:default',
+      'gitignore:default'
     ], cb)
   })
 
