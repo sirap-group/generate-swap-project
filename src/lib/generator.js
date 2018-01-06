@@ -47,8 +47,8 @@ export default function (app) {
       'prompt',
       'destination-directory:default',
       'package:default',
-      'git:default',
-      'gitignore:default'
+      'gitignore:default',
+      'git:default'
     ], cb)
   })
 
