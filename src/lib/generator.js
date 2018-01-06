@@ -68,6 +68,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.gitignore` file to the current working directory.
+   * Call the `gitignore:default` task from the sub generator `generate-swap-gitignore`.
+   *
+   * ```sh
+   * $ gen swap-project:gitignore
+   * ```
+   * @name package
+   * @api public
+   */
+  app.task('gitignore', function (cb) {
+    app.generate(['gitignore:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
