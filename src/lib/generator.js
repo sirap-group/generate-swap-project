@@ -12,6 +12,7 @@ import generateGitignore from './subgenerators/generate-swap-gitignore/generator
 import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
 import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
 import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
+import generateContribute from './subgenerators/generate-swap-contribute/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -37,6 +38,7 @@ export default function (app) {
   app.register('gitattributes', generateGitattributes)
   app.register('editorconfig', generateEditorconfig)
   app.register('npmrc', generateNpmrc)
+  app.register('contribute', generateContribute)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -57,6 +59,7 @@ export default function (app) {
       'gitattributes',
       'editorconfig',
       'npmrc',
+      'contribute',
       'git:default'
     ], cb)
   })
@@ -154,6 +157,20 @@ export default function (app) {
    */
   app.task('npmrc', function (cb) {
     app.generate(['npmrc:default'], cb)
+  })
+
+  /**
+   * Write a `.contribute` file to the current working directory.
+   * Call the `contribute:default` task from the sub generator `generate-swap-contribute`.
+   *
+   * ```sh
+   * $ gen swap-project:contribute
+   * ```
+   * @name contribute
+   * @api public
+   */
+  app.task('contribute', function (cb) {
+    app.generate(['contribute:default'], cb)
   })
 
   /**
