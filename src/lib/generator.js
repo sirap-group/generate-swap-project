@@ -144,6 +144,12 @@ export default function (app) {
    * task, to allow running this generator with the following command:
    *
    * ```sh
+   * $ gen swap-project:default
+   * ```
+   *
+   * or simply
+   *
+   * ```sh
    * $ gen swap-project
    * ```
    * @name default
