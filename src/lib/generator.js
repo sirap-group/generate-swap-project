@@ -11,6 +11,7 @@ import generatePackage from './subgenerators/generate-swap-package/generator'
 import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
 import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
 import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
+import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -35,6 +36,7 @@ export default function (app) {
   app.register('gitignore', generateGitignore)
   app.register('gitattributes', generateGitattributes)
   app.register('editorconfig', generateEditorconfig)
+  app.register('npmrc', generateNpmrc)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
