@@ -58,6 +58,15 @@ export default function (app) {
     ], cb)
   })
 
+  /**
+   * Ask the user for all the required data for all the tasks in this generator.
+   *
+   * ```sh
+   * $ gen swap-project:prompt
+   * ```
+   * @name prompt
+   * @api public
+   */
   app.task('prompt', promptTask(app))
 
   /**
