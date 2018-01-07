@@ -50,6 +50,7 @@ export default function (app) {
       'destination-directory:default',
       'package:default',
       'gitignore:default',
+      'gitattributes:default',
       'git:default'
     ], cb)
   })
