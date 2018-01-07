@@ -38,7 +38,7 @@ export default function (app) {
   app.register('gitattributes', generateGitattributes)
   app.register('editorconfig', generateEditorconfig)
   app.register('npmrc', generateNpmrc)
-  app.register('npmrc', generateContribute)
+  app.register('contribute', generateContribute)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
