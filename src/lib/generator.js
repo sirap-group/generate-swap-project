@@ -142,6 +142,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.npmrc` file to the current working directory.
+   * Call the `npmrc:default` task from the sub generator `generate-swap-npmrc`.
+   *
+   * ```sh
+   * $ gen swap-project:npmrc
+   * ```
+   * @name npmrc
+   * @api public
+   */
+  app.task('npmrc', function (cb) {
+    app.generate(['npmrc:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
