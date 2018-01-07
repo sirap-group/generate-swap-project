@@ -60,6 +60,20 @@ export default function (app) {
   app.task('prompt', promptTask(app))
 
   /**
+   * Set the destination directory for generated files.
+   * Call the `destination-directory:default` task from the sub generator `destination-directory`.
+   *
+   * ```sh
+   * $ gen swap-project:dest
+   * ```
+   * @name dest
+   * @api public
+   */
+  app.task('dest', function (cb) {
+    app.generate(['destination-directory:default'], cb)
+  })
+
+  /**
    * Write a `package.json` file to the current working directory.
    * Call the `package:default` task from the sub generator `generate-swap-package`.
    *
