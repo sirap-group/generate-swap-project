@@ -102,6 +102,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.editorconfig` file to the current working directory.
+   * Call the `editorconfig:default` task from the sub generator `generate-swap-editorconfig`.
+   *
+   * ```sh
+   * $ gen swap-project:editorconfig
+   * ```
+   * @name editorconfig
+   * @api public
+   */
+  app.task('editorconfig', function (cb) {
+    app.generate(['editorconfig:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
