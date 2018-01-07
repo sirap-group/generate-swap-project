@@ -9,6 +9,7 @@ import generateGit from 'generate-git'
 
 import generatePackage from './subgenerators/generate-swap-package/generator'
 import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
+import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -31,6 +32,7 @@ export default function (app) {
   app.register('git', generateGit)
   app.register('package', generatePackage)
   app.register('gitignore', generateGitignore)
+  app.register('gitattributes', generateGitattributes)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
