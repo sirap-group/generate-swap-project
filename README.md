@@ -89,6 +89,7 @@ Runs all the following tasks in the following order:
 - `gitignore`
 - `gitattributes`
 - `editorconfig`
+- `npmrc`
 - `git`
 
 
@@ -177,6 +178,14 @@ Generate a file `.editorconfig`
 
 ```
 $ gen swap-project:editorconfig
+```
+
+### `swap-project:npmrc`
+
+Generate a file `.npmrc`
+
+```
+$ gen swap-project:npmrc
 ```
 
 ## Contribute
