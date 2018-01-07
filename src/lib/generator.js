@@ -85,6 +85,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.gitattributes` file to the current working directory.
+   * Call the `gitattributes:default` task from the sub generator `generate-swap-gitattributes`.
+   *
+   * ```sh
+   * $ gen swap-project:gitattributes
+   * ```
+   * @name gitattributes
+   * @api public
+   */
+  app.task('gitattributes', function (cb) {
+    app.generate(['gitattributes:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
