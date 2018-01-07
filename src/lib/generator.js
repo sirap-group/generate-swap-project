@@ -56,6 +56,7 @@ export default function (app) {
       'gitignore',
       'gitattributes',
       'editorconfig',
+      'npmrc',
       'git:default'
     ], cb)
   })
