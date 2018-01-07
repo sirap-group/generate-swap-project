@@ -8,7 +8,7 @@ import generateDefaults from 'generate-defaults'
 const log = new Logger('generate-swap-gitignore')
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-package')) return
+  if (!isValid(app, 'generate-swap-gitignore')) return
 
   app.on('error', ::log.error)
 
