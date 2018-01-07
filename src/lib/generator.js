@@ -159,6 +159,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.contribute` file to the current working directory.
+   * Call the `contribute:default` task from the sub generator `generate-swap-contribute`.
+   *
+   * ```sh
+   * $ gen swap-project:contribute
+   * ```
+   * @name contribute
+   * @api public
+   */
+  app.task('contribute', function (cb) {
+    app.generate(['contribute:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
