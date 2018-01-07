@@ -52,7 +52,7 @@ export default function (app) {
       'destination-directory:default',
       'package:default',
       'gitignore:default',
-      'gitattributes:default',
+      'editorconfig',
       'git:default'
     ], cb)
   })
