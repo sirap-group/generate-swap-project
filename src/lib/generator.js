@@ -49,9 +49,10 @@ export default function (app) {
   app.task('project', function (cb) {
     app.generate([
       'prompt',
-      'destination-directory:default',
-      'package:default',
-      'gitignore:default',
+      'dest',
+      'package',
+      'gitignore',
+      'gitattributes',
       'editorconfig',
       'git:default'
     ], cb)
