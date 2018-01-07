@@ -127,6 +127,14 @@ Generate a file `.gitignore`
 $ gen swap-project:gitignore
 ```
 
+### `swap-project:gitattributes`
+
+Generate a file `.gitattributes`
+
+```
+$ gen swap-project:gitattributes
+```
+
 ## Contribute
 
 ### Codebase

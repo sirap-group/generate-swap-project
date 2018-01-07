@@ -5,27 +5,25 @@ import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
 
-const log = new Logger('generate-swap-gitignore')
+const log = new Logger('generate-swap-gitattributes')
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-gitignore')) return
+  if (!isValid(app, 'generate-swap-gitattributes')) return
 
   app.on('error', ::log.error)
-
-  // app.postRender(/package\.json$/, packagePostRender(app))
 
   app.use(generateDefaults)
 
   /**
-   * Write a `.gitignore` file to the current working directory.
+   * Write a `.gitattributes` file to the current working directory.
    *
    * ```sh
-   * $ gen swap-package:gitignore
+   * $ gen swap-package:gitattributes
    * ```
-   * @name gitignore
+   * @name gitattributes
    * @api public
    */
-  task(app, 'gitignore', 'generate-swap-gitignore/_gitignore')
+  task(app, 'gitattributes', 'generate-swap-gitattributes/_gitattributes')
 
   /**
    * Run the `default` task
@@ -43,5 +41,5 @@ export default function (app) {
    * @name default
    * @api public
    */
-  app.task('default', ['gitignore'])
+  app.task('default', ['gitattributes'])
 }

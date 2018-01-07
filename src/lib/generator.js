@@ -9,6 +9,7 @@ import generateGit from 'generate-git'
 
 import generatePackage from './subgenerators/generate-swap-package/generator'
 import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
+import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -31,6 +32,7 @@ export default function (app) {
   app.register('git', generateGit)
   app.register('package', generatePackage)
   app.register('gitignore', generateGitignore)
+  app.register('gitattributes', generateGitattributes)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -48,6 +50,7 @@ export default function (app) {
       'destination-directory:default',
       'package:default',
       'gitignore:default',
+      'gitattributes:default',
       'git:default'
     ], cb)
   })
@@ -80,6 +83,20 @@ export default function (app) {
    */
   app.task('gitignore', function (cb) {
     app.generate(['gitignore:default'], cb)
+  })
+
+  /**
+   * Write a `.gitattributes` file to the current working directory.
+   * Call the `gitattributes:default` task from the sub generator `generate-swap-gitattributes`.
+   *
+   * ```sh
+   * $ gen swap-project:gitattributes
+   * ```
+   * @name gitattributes
+   * @api public
+   */
+  app.task('gitattributes', function (cb) {
+    app.generate(['gitattributes:default'], cb)
   })
 
   /**

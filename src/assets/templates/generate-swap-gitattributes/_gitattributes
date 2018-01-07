@@ -1,0 +1,6 @@
+---
+layout: false
+rename:
+  basename: '.gitattributes'
+---
+* text=auto
