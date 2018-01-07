@@ -59,6 +59,7 @@ export default function (app) {
       'gitattributes',
       'editorconfig',
       'npmrc',
+      'contribute',
       'git:default'
     ], cb)
   })
