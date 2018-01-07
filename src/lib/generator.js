@@ -10,6 +10,7 @@ import generateGit from 'generate-git'
 import generatePackage from './subgenerators/generate-swap-package/generator'
 import generateGitignore from './subgenerators/generate-swap-gitignore/generator'
 import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
+import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -33,6 +34,7 @@ export default function (app) {
   app.register('package', generatePackage)
   app.register('gitignore', generateGitignore)
   app.register('gitattributes', generateGitattributes)
+  app.register('editorconfig', generateEditorconfig)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -47,15 +49,39 @@ export default function (app) {
   app.task('project', function (cb) {
     app.generate([
       'prompt',
-      'destination-directory:default',
-      'package:default',
-      'gitignore:default',
-      'gitattributes:default',
+      'dest',
+      'package',
+      'gitignore',
+      'gitattributes',
+      'editorconfig',
       'git:default'
     ], cb)
   })
 
+  /**
+   * Ask the user for all the required data for all the tasks in this generator.
+   *
+   * ```sh
+   * $ gen swap-project:prompt
+   * ```
+   * @name prompt
+   * @api public
+   */
   app.task('prompt', promptTask(app))
+
+  /**
+   * Set the destination directory for generated files.
+   * Call the `destination-directory:default` task from the sub generator `destination-directory`.
+   *
+   * ```sh
+   * $ gen swap-project:dest
+   * ```
+   * @name dest
+   * @api public
+   */
+  app.task('dest', function (cb) {
+    app.generate(['destination-directory:default'], cb)
+  })
 
   /**
    * Write a `package.json` file to the current working directory.
@@ -100,8 +126,28 @@ export default function (app) {
   })
 
   /**
+   * Write a `.editorconfig` file to the current working directory.
+   * Call the `editorconfig:default` task from the sub generator `generate-swap-editorconfig`.
+   *
+   * ```sh
+   * $ gen swap-project:editorconfig
+   * ```
+   * @name editorconfig
+   * @api public
+   */
+  app.task('editorconfig', function (cb) {
+    app.generate(['editorconfig:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
+   *
+   * ```sh
+   * $ gen swap-project:default
+   * ```
+   *
+   * or simply
    *
    * ```sh
    * $ gen swap-project

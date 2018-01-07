@@ -65,6 +65,32 @@ $ cat mylab/package.json
 
 ### `swap-project:default`
 
+Runs the `project` task.
+
+```
+$ gen swap-project
+```
+
+or
+
+```
+$ gen swap-project:default
+```
+
+### `swap-project:project`
+
+Generate the whole project in the directory choosen by the user when in ask to the question.
+
+Runs all the following tasks in the following order:
+
+- `prompt`
+- `dest`
+- `package`
+- `gitignore`
+- `gitattributes`
+- `editorconfig`
+- `git`
+
 
 ```
 $ gen swap-project
@@ -78,8 +104,18 @@ $ gen swap-project:default
 
 ### `swap-project:prompt`
 
+Ask the user for all the required data for all the tasks in this generator.
+
 ```
 $ gen swap-project:prompt
+```
+
+### `swap-project:dest`
+
+Set the destination directory for generated files.
+
+```
+$ gen swap-project:dest
 ```
 
 ### `swap-project:package`
@@ -133,6 +169,14 @@ Generate a file `.gitattributes`
 
 ```
 $ gen swap-project:gitattributes
+```
+
+### `swap-project:editorconfig`
+
+Generate a file `.editorconfig`
+
+```
+$ gen swap-project:editorconfig
 ```
 
 ## Contribute
