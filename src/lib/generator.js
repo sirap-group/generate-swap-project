@@ -62,6 +62,7 @@ export default function (app) {
       'editorconfig',
       'npmrc',
       'contribute',
+      'license',
       'git:default'
     ], cb)
   })
