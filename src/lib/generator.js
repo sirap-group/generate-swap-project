@@ -229,6 +229,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `.travis.yml` file to the current working directory.
+   * Call the `travis:default` task from the sub generator `generate-swap-travis`.
+   *
+   * ```sh
+   * $ gen swap-project:travis
+   * ```
+   *
+   * @name travis
+   * @api public
+   */
+  app.task('travis', function (cb) {
+    app.generate(['travis:default'], cb)
+  })
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
