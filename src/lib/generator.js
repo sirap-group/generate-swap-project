@@ -162,7 +162,7 @@ export default function (app) {
   })
 
   /**
-   * Write a `.contribute` file to the current working directory.
+   * Write a `contribute.md` file to the current working directory.
    * Call the `contribute:default` task from the sub generator `generate-swap-contribute`.
    *
    * ```sh
