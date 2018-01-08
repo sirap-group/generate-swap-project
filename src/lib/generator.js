@@ -16,6 +16,7 @@ import generateContribute from './subgenerators/generate-swap-contribute/generat
 import generateLicense from './subgenerators/generate-swap-license/generator'
 import generateMain from './subgenerators/generate-swap-main/generator'
 import generateReadme from './subgenerators/generate-swap-readme/generator'
+import generateTravis from './subgenerators/generate-swap-travis/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -45,6 +46,7 @@ export default function (app) {
   app.register('license', generateLicense)
   app.register('main', generateMain)
   app.register('readme', generateReadme)
+  app.register('travis', generateTravis)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
