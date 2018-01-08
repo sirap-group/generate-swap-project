@@ -26,7 +26,7 @@ export default app => {
       // console.log({response, key, question, answers})
     })
 
-    let name, defaultHost, owner, files
+    let name, defaultHost, files, authorName
 
     app.question('name', {
       message: 'Project name ?',
@@ -49,28 +49,34 @@ export default app => {
         message: 'Git host platform ?',
         choices: ['github.com', 'gitlab.sirap.fr', 'gitlab.com']
       })
-      app.question('owner', {
-        message: `Git host username ?`
+      app.question('author.username', {
+        message: 'Author username ?'
+      })
+      app.question('author.name', {
+        message: 'Author name ?'
       })
 
       // const {dest, description, githosts, owner} = await askPromise(['dest', 'description', 'githosts', 'owner'])
-      return askPromise(['dest', 'description', 'githosts', 'owner'])
+      return askPromise(['dest', 'description', 'githosts', 'author.username', 'author.name'])
     })
     .then(answers => {
       const {githosts} = answers
-      owner = answers.owner
       defaultHost = (githosts.length > 1) ? 'github.com' : githosts[0]
       app.base.data(answers)
 
+      app.question('owner', {
+        message: `Owner (author or organisation) ?`,
+        default: authorName
+      })
       app.question('namespace', {
         message: 'Project namespace ?',
         default: answers.owner
       })
 
-      return askPromise(['namespace'])
+      return askPromise(['owner', 'namespace'])
     })
-    .then(({namespace}) => {
-      app.base.data({namespace})
+    .then(({owner, namespace}) => {
+      app.base.data({owner, namespace})
 
       const defaultHomepage = defaultHost === 'github.com'
         ? `https://github.com/${namespace}/${name}`
@@ -102,13 +108,6 @@ export default app => {
       app.question('license', {
         message: 'License ?',
         default: defaultHost === 'github.com' ? 'MIT' : 'UNLICENSED'
-      })
-      app.question('author.name', {
-        message: 'Author name ?'
-      })
-      app.question('author.username', {
-        message: 'Author username ?',
-        default: owner
       })
 
       return askPromise([ 'homepage', 'issues', 'repository', 'version', 'license', 'author.name', 'author.username' ])
