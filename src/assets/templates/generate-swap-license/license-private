@@ -1,0 +1,8 @@
+---
+layout: false
+rename:
+  basename: 'LICENSE'
+---
+Private License
+
+Copyright © <%= year %> <%= ask('owner') %>
