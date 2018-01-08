@@ -23,7 +23,7 @@ export default function (app) {
    * @name gitlabci
    * @api public
    */
-  task(app, 'gitlabci', 'generate-swap-gitlabci/_gitlabci.yml')
+  task(app, 'gitlabci', 'generate-swap-gitlabci/_gitlab-ci.yml')
 
   /**
    * Run the `default` task
