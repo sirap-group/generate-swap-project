@@ -174,4 +174,6 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ## License
 
-MIT © [Rémi Becheras](https://github.com/<%= namespace %>)
+Copyright © [<%= ask('owner') %>](https://github.com/<%= namespace %>)
+
+See [LICENSE](LICENSE)
