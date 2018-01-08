@@ -13,8 +13,8 @@ rename:
   <a href="https://npmjs.org/package/<%= ask('name') %>" target="_blank">
     <img alt="NPM version" src="https://badge.fury.io/js/<%= ask('name') %>.svg"/>
   </a>
-  <a href="https://travis-ci.org/<%= namespace %>/<%= ask('name') %>" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/<%= namespace %>/<%= ask('name') %>.svg?branch=master"/>
+  <a href="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>.svg?branch=master"/>
   </a>
   <a href="https://standardjs.com" target="_blank">
     <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
@@ -118,7 +118,7 @@ All the rest of the development dependencies are local.
 Clone the repo and install dependencies:
 
 ```sh
-$ git clone git@github.com:<%= namespace %>/<%= ask('name') %>.git
+$ git clone git@github.com:<%= ask('namespace') %>/<%= ask('name') %>.git
 $ cd <%= ask('name') %>
 $ yarn install
 ```
@@ -174,6 +174,6 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ## License
 
-Copyright © [<%= ask('owner') %>](https://github.com/<%= namespace %>)
+Copyright © [<%= ask('owner') %>](https://github.com/<%= ask('namespace') %>)
 
 See [LICENSE](LICENSE)
