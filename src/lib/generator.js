@@ -193,6 +193,22 @@ export default function (app) {
   })
 
   /**
+   * Write the following three files to the current working directory:
+   * - ./index.js
+   * - ./src/lib/index.js
+   * - ./src/tests/index.test.js
+   *
+   * ```sh
+   * $ gen swap-project:main
+   * ```
+   * @name license
+   * @api public
+   */
+  app.task('main', function (cb) {
+    app.generate(['main:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
