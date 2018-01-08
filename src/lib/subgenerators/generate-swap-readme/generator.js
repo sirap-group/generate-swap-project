@@ -2,7 +2,6 @@ import path from 'path'
 import extend from 'extend'
 import isValid from 'is-valid-app'
 import helperDate from 'helper-date'
-// import copy from 'copy'
 
 import { task } from '../../utils/utils'
 import { camelcaseHelper } from '../../utils/helpers'
@@ -44,12 +43,10 @@ export default function (app) {
    */
   app.task('assets', done => {
     const opts = extend({}, app.base.options, app.options)
-    const srcBase = opts.srcBase || path.join(__dirname, '../../../assets')
-    const dest = path.join(app.cwd, 'src/assets/img')
+    const srcBase = opts.srcBase || path.join(__dirname, '../../../../src')
+    const dest = path.join(app.cwd, 'src')
 
-    console.log({ dest, srcBase })
-    // copy('../../../assets/img/*', dest, done)
-    return app.src('img/*', {cwd: srcBase})
+    app.src('assets/img/**/*', {cwd: srcBase, base: srcBase})
     .pipe(app.dest(dest))
     .on('finish', done)
     .on('error', done)
