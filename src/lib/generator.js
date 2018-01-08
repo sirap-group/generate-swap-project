@@ -65,6 +65,7 @@ export default function (app) {
       'npmrc',
       'contribute',
       'license',
+      'main',
       'git:default'
     ], cb)
   })
