@@ -23,7 +23,7 @@ export default function (app) {
    * @name travis
    * @api public
    */
-  task(app, 'travis', 'generate-swap-travis/_travis')
+  task(app, 'travis', 'generate-swap-travis/_travis.yml')
 
   /**
    * Run the `default` task
