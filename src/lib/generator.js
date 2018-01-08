@@ -247,6 +247,21 @@ export default function (app) {
   })
 
   /**
+   * Write a `.gitlabci.yml` file to the current working directory.
+   * Call the `gitlabci:default` task from the sub generator `generate-swap-gitlabci`.
+   *
+   * ```sh
+   * $ gen swap-project:gitlabci
+   * ```
+   *
+   * @name gitlabci
+   * @api public
+   */
+  app.task('gitlabci', function (cb) {
+    app.generate(['gitlabci:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
