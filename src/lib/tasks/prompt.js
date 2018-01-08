@@ -62,8 +62,21 @@ export default app => {
     .then(answers => {
       const {githosts} = answers
       defaultHost = (githosts.length > 1) ? 'github.com' : githosts[0]
+      const authorUsername = answers.author.username
+      const defaultAuthorUrl = defaultHost === 'github.com'
+        ? `https://github.com/${authorUsername}`
+        : `https://gitlab.sirap.fr/${authorUsername}`
+
       app.base.data(answers)
 
+      app.question('author.url', {
+        message: 'Author URL ?',
+        default: defaultAuthorUrl
+      })
+      app.question('author.twitter', {
+        message: 'Twitter URL ?',
+        default: `https://twitter.com/${authorUsername}`
+      })
       app.question('owner', {
         message: `Owner (author or organisation) ?`,
         default: authorName
@@ -73,7 +86,7 @@ export default app => {
         default: answers.owner
       })
 
-      return askPromise(['owner', 'namespace'])
+      return askPromise(['author.url', 'author.twitter', 'owner', 'namespace'])
     })
     .then(({owner, namespace}) => {
       app.base.data({owner, namespace})
@@ -110,26 +123,7 @@ export default app => {
         default: defaultHost === 'github.com' ? 'MIT' : 'UNLICENSED'
       })
 
-      return askPromise([ 'homepage', 'issues', 'repository', 'version', 'license', 'author.name', 'author.username' ])
-    })
-    .then(answers => {
-      app.base.data(answers)
-
-      const authorUsername = answers.author.username
-      const defaultAuthorUrl = defaultHost === 'github.com'
-        ? `https://github.com/${authorUsername}`
-        : `https://gitlab.sirap.fr/${authorUsername}`
-
-      app.question('author.url', {
-        message: 'Author URL ?',
-        default: defaultAuthorUrl
-      })
-      app.question('author.twitter', {
-        message: 'Twitter URL ?',
-        default: `https://twitter.com/${authorUsername}`
-      })
-
-      return askPromise(['author.url', 'author.twitter'])
+      return askPromise([ 'homepage', 'issues', 'repository', 'version', 'license' ])
     })
     .then(answers => {
       app.base.data(answers)
