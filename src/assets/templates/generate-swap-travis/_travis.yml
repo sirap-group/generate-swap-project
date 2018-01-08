@@ -1,0 +1,22 @@
+---
+layout: false
+rename:
+  basename: '.travis.yml'
+---
+sudo: false
+language: node_js
+node_js:
+  - "node"
+  - "9"
+  - "lts/carbon"
+  - "7"
+  - "lts/boron"
+  - "5"
+  - "lts/argon"
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: "5"
+    - node_js: "lts/argon"
+script:
+  - yarn travis
