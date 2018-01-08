@@ -1,6 +1,7 @@
+import path from 'path'
+import extend from 'extend'
 import isValid from 'is-valid-app'
 
-import { task } from '../../utils/utils'
 import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
@@ -15,15 +16,25 @@ export default function (app) {
   app.use(generateDefaults)
 
   /**
-   * Write a `.license` file to the current working directory.
+   * Write a `LICENSE` file to the current working directory.
+   * Available licenses: MIT or Private
    *
    * ```sh
    * $ gen swap-license:license
    * ```
    * @name license
    * @api public
+   * @todo add more license types
    */
-  task(app, 'license', 'generate-swap-license/license.md')
+  app.task('license', () => {
+    const opts = extend({}, app.base.options, app.options)
+    const srcBase = opts.srcBase || path.join(__dirname, '../../assets/templates')
+    const templateName = app.base.cache.data.license === 'MIT' ? 'license-mit' : 'license-private'
+    return app.src(`generate-swap-license/${templateName}`, {cwd: srcBase})
+      .pipe(app.renderFile('*', app.base.cache.data))
+      .pipe(app.conflicts(app.cwd))
+      .pipe(app.dest(app.cwd))
+  })
 
   /**
    * Run the `default` task
