@@ -68,6 +68,7 @@ export default function (app) {
       'contribute',
       'license',
       'main',
+      'readme',
       'git:default'
     ], cb)
   })
