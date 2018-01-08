@@ -29,9 +29,10 @@ export default function (app) {
    */
   app.task('license', () => {
     const opts = extend({}, app.base.options, app.options)
-    const srcBase = opts.srcBase || path.join(__dirname, '../../assets/templates')
+    const srcBase = opts.srcBase || path.join(__dirname, '../../../assets/templates')
     const templateName = app.base.cache.data.license === 'MIT' ? 'license-mit' : 'license-private'
-    return app.src(`generate-swap-license/${templateName}`, {cwd: srcBase})
+    const templatePath = `generate-swap-license/${templateName}`
+    return app.src(templatePath, {cwd: srcBase})
       .pipe(app.renderFile('*', app.base.cache.data))
       .pipe(app.conflicts(app.cwd))
       .pipe(app.dest(app.cwd))
