@@ -176,6 +176,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `LICENSE` file to the current working directory.
+   * Call the `license:default` task from the sub generator `generate-swap-license`.
+   *
+   * ```sh
+   * $ gen swap-project:license
+   * ```
+   * @name license
+   * @api public
+   */
+  app.task('license', function (cb) {
+    app.generate(['license:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
