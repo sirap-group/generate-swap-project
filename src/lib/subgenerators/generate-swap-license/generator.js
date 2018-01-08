@@ -25,6 +25,7 @@ export default function (app) {
    * @name license
    * @api public
    * @todo add more license types
+   * @todo need a prompt task for `license` (`app.base.cache.data.license`)
    */
   app.task('license', () => {
     const opts = extend({}, app.base.options, app.options)
