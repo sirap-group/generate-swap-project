@@ -71,6 +71,7 @@ export default function (app) {
       'license',
       'main',
       'readme',
+      'travis',
       'git:default'
     ], cb)
   })
@@ -242,6 +243,7 @@ export default function (app) {
   app.task('travis', function (cb) {
     app.generate(['travis:default'], cb)
   })
+
   /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
