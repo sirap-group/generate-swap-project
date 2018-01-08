@@ -13,6 +13,7 @@ import generateGitattributes from './subgenerators/generate-swap-gitattributes/g
 import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
 import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
 import generateContribute from './subgenerators/generate-swap-contribute/generator'
+import generateLicense from './subgenerators/generate-swap-license/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -39,6 +40,7 @@ export default function (app) {
   app.register('editorconfig', generateEditorconfig)
   app.register('npmrc', generateNpmrc)
   app.register('contribute', generateContribute)
+  app.register('license', generateLicense)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -60,6 +62,7 @@ export default function (app) {
       'editorconfig',
       'npmrc',
       'contribute',
+      'license',
       'git:default'
     ], cb)
   })
@@ -160,7 +163,7 @@ export default function (app) {
   })
 
   /**
-   * Write a `.contribute` file to the current working directory.
+   * Write a `contribute.md` file to the current working directory.
    * Call the `contribute:default` task from the sub generator `generate-swap-contribute`.
    *
    * ```sh
@@ -171,6 +174,20 @@ export default function (app) {
    */
   app.task('contribute', function (cb) {
     app.generate(['contribute:default'], cb)
+  })
+
+  /**
+   * Write a `LICENSE` file to the current working directory.
+   * Call the `license:default` task from the sub generator `generate-swap-license`.
+   *
+   * ```sh
+   * $ gen swap-project:license
+   * ```
+   * @name license
+   * @api public
+   */
+  app.task('license', function (cb) {
+    app.generate(['license:default'], cb)
   })
 
   /**
