@@ -212,6 +212,20 @@ export default function (app) {
   })
 
   /**
+   * Write a `README.md` file to the current working directory and copy the required assets images to `src/assets/img`.
+   * Call the `readme:default` task from the sub generator `generate-swap-readme`.
+   *
+   * ```sh
+   * $ gen swap-project:readme
+   * ```
+   * @name readme
+   * @api public
+   */
+  app.task('readme', function (cb) {
+    app.generate(['readme:default'], cb)
+  })
+
+  /**
    * Scaffold out a new swap-project project. This task is an alias for the [swap-project](#swap-project)
    * task, to allow running this generator with the following command:
    *
