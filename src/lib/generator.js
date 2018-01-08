@@ -13,6 +13,7 @@ import generateGitattributes from './subgenerators/generate-swap-gitattributes/g
 import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
 import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
 import generateContribute from './subgenerators/generate-swap-contribute/generator'
+import generateLicense from './subgenerators/generate-swap-license/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -39,6 +40,7 @@ export default function (app) {
   app.register('editorconfig', generateEditorconfig)
   app.register('npmrc', generateNpmrc)
   app.register('contribute', generateContribute)
+  app.register('license', generateLicense)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
