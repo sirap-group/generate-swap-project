@@ -51,6 +51,8 @@ export default function (app) {
     // copy('../../../assets/img/*', dest, done)
     return app.src('img/*', {cwd: srcBase})
     .pipe(app.dest(dest))
+    .on('finish', done)
+    .on('error', done)
   })
 
   /**
