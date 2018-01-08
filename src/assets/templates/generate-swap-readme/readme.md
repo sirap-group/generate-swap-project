@@ -57,8 +57,8 @@ $ <%= ask('name') %>
 
 ### Local
 
-```sh
-import <%= camelcase(ask('name')) %> from <%= ask('name') %>
+```js
+import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
 <%= camelcase(ask('name')) %>()
 ```
 
