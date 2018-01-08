@@ -74,6 +74,7 @@ export default function (app) {
       'main',
       'readme',
       'travis',
+      'gitlabci',
       'git:default'
     ], cb)
   })
