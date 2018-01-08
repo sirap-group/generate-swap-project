@@ -20,6 +20,10 @@ const actual = path.resolve.bind(path, __dirname, 'actual')
 describe('generate-swap-project', function () {
   this.slow(250)
 
+  if (isTravis) {
+    this.timeout(4000)
+  }
+
   if (!isCI && !isTravis) {
     before(function (cb) {
       npm.maybeInstall('generate', cb)
