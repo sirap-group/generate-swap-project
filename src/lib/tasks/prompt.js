@@ -10,6 +10,7 @@
  * @name project:prompt
  * @api public
  * @todo to use radio or other custom prompt:
+ * @todo skip if answer exist in cache
  * @see https://github.com/enquirer/prompt-radio/issues/3
  */
 export default app => {
