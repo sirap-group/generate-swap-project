@@ -17,6 +17,7 @@ import generateLicense from './subgenerators/generate-swap-license/generator'
 import generateMain from './subgenerators/generate-swap-main/generator'
 import generateReadme from './subgenerators/generate-swap-readme/generator'
 import generateTravis from './subgenerators/generate-swap-travis/generator'
+import generateGitlabci from './subgenerators/generate-swap-gitlabci/generator'
 
 import promptTask from './tasks/prompt'
 
@@ -47,6 +48,7 @@ export default function (app) {
   app.register('main', generateMain)
   app.register('readme', generateReadme)
   app.register('travis', generateTravis)
+  app.register('gitlabci', generateGitlabci)
 
   /**
    * Scaffold out a(n) swap-project project. Also aliased as the [default](#default) task.
@@ -72,6 +74,7 @@ export default function (app) {
       'main',
       'readme',
       'travis',
+      'gitlabci',
       'git:default'
     ], cb)
   })
@@ -242,6 +245,21 @@ export default function (app) {
    */
   app.task('travis', function (cb) {
     app.generate(['travis:default'], cb)
+  })
+
+  /**
+   * Write a `.gitlabci.yml` file to the current working directory.
+   * Call the `gitlabci:default` task from the sub generator `generate-swap-gitlabci`.
+   *
+   * ```sh
+   * $ gen swap-project:gitlabci
+   * ```
+   *
+   * @name gitlabci
+   * @api public
+   */
+  app.task('gitlabci', function (cb) {
+    app.generate(['gitlabci:default'], cb)
   })
 
   /**
