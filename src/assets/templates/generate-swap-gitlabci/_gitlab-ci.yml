@@ -33,7 +33,7 @@ transpile:
   - yarn build
   artifacts:
     when: on_success
-    name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+    name: #{CI_COMMIT_REF_NAME}#{CI_JOB_NAME}
     paths:
     - dist/
   tags:
@@ -59,7 +59,7 @@ test:
 #   - transpile
 #   artifacts:
 #     when: on_success
-#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     name: #{CI_COMMIT_REF_NAME}#{CI_JOB_NAME}
 #     paths:
 #     - dist/
 #   tags:
@@ -72,7 +72,7 @@ test:
 #   - yarn build:docs
 #   artifacts:
 #     when: on_success
-#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     name: #{CI_COMMIT_REF_NAME}#{CI_JOB_NAME}
 #     paths:
 #     - docs/
 #   tags:
@@ -87,7 +87,7 @@ test:
 #   - transpile
 #   artifacts:
 #     when: on_success
-#     name: ${CI_COMMIT_REF_NAME}${CI_JOB_NAME}
+#     name: #{CI_COMMIT_REF_NAME}#{CI_JOB_NAME}
 #     paths:
 #     - dist/
 #   tags:
