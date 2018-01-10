@@ -42,7 +42,7 @@ Should scaffold the project in the destination path you choose when asked.
 | |   └── ...
 | └─┬ lib/
 |   └─ index.js
-├── contribute.md
+├── contributing.md
 ├── .editorconfig
 ├── .git
 ├── .gitattributes
@@ -94,7 +94,7 @@ Runs all the following tasks in the following order:
 - `gitattributes`
 - `editorconfig`
 - `npmrc`
-- `contribute`
+- `contributing`
 - `license`
 - `main`
 - `readme`
@@ -198,12 +198,12 @@ Generate a file `.npmrc` in the destination directory.
 $ gen swap-project:npmrc
 ```
 
-### `swap-project:contribute`
+### `swap-project:contributing`
 
 Generate a file `.contributing.md` in the destination directory.
 
 ```
-$ gen swap-project:contribute
+$ gen swap-project:contributing
 ```
 
 ### `swap-project:lincense`
@@ -246,7 +246,7 @@ Generate a file `.gitlab-ci.yml` in the destination directory.
 $ gen swap-project:gitlabci
 ```
 
-## Contribute
+## Contributing
 
 ### Codebase
 
@@ -267,7 +267,7 @@ We use:
 
 ### Contribution guide
 
-> See the [contribution guide](contributing.md) in a separated document.
+> See the [contribution guide](CONTRIBUTING.md) in a separated document.
 
 ### Development
 

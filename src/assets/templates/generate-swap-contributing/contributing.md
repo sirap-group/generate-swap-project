@@ -1,7 +1,7 @@
 ---
 layout: false
 rename:
-  basename: 'contribute.md'
+  basename: 'CONTRIBUTING.md'
 ---
 # Contributing to generate-swap-project
 

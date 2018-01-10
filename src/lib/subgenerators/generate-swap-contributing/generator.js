@@ -5,41 +5,41 @@ import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
 
-const log = new Logger('generate-swap-contribute')
+const log = new Logger('generate-swap-contributing')
 
 export default function (app) {
-  if (!isValid(app, 'generate-swap-contribute')) return
+  if (!isValid(app, 'generate-swap-contributing')) return
 
   app.on('error', ::log.error)
 
   app.use(generateDefaults)
 
   /**
-   * Write a `.contribute` file to the current working directory.
+   * Write a `CONTRIBUTING.md` file to the current working directory.
    *
    * ```sh
-   * $ gen swap-contribute:contribute
+   * $ gen swap-contributing:contributing
    * ```
-   * @name contribute
+   * @name contributing
    * @api public
    */
-  task(app, 'contribute', 'generate-swap-contribute/contribute.md')
+  task(app, 'contributing', 'generate-swap-contributing/contributing.md')
 
   /**
    * Run the `default` task
    *
    * ```sh
-   * $ gen swap-contribute
+   * $ gen swap-contributing
    * ```
    *
    * or
    *
    * ```sh
-   * $ gen swap-contribute:default
+   * $ gen swap-contributing:default
    * ```
    *
    * @name default
    * @api public
    */
-  app.task('default', ['contribute'])
+  app.task('default', ['contributing'])
 }
