@@ -34,7 +34,13 @@ Should scaffold the project in the destination path you choose when asked.
 
 #### Usage screenshot
 
+Generating the project:
+
 ![Usage example](src/assets/img/usage-screencast.gif)
+
+Then install dependencies and run the unit tests:
+
+![Usage example](src/assets/img/usage-screencast-2.gif)
 
 #### Resulting files
 
