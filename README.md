@@ -90,6 +90,12 @@ Runs all the following tasks in the following order:
 - `gitattributes`
 - `editorconfig`
 - `npmrc`
+- `contribute`
+- `license`
+- `main`
+- `readme`
+- `travis`
+- `gitlabci`
 - `git`
 
 
@@ -158,7 +164,7 @@ $ gen swap-project:git
 
 ### `swap-project:gitignore`
 
-Generate a file `.gitignore`
+Generate a file `.gitignore` in the destination directory.
 
 ```
 $ gen swap-project:gitignore
@@ -166,7 +172,7 @@ $ gen swap-project:gitignore
 
 ### `swap-project:gitattributes`
 
-Generate a file `.gitattributes`
+Generate a file `.gitattributes` in the destination directory.
 
 ```
 $ gen swap-project:gitattributes
@@ -174,7 +180,7 @@ $ gen swap-project:gitattributes
 
 ### `swap-project:editorconfig`
 
-Generate a file `.editorconfig`
+Generate a file `.editorconfig` in the destination directory.
 
 ```
 $ gen swap-project:editorconfig
@@ -182,10 +188,58 @@ $ gen swap-project:editorconfig
 
 ### `swap-project:npmrc`
 
-Generate a file `.npmrc`
+Generate a file `.npmrc` in the destination directory.
 
 ```
 $ gen swap-project:npmrc
+```
+
+### `swap-project:contribute`
+
+Generate a file `.contributing.md` in the destination directory.
+
+```
+$ gen swap-project:contribute
+```
+
+### `swap-project:lincense`
+
+Generate a file `LICENSE` in the destination directory.
+
+```
+$ gen swap-project:lincense
+```
+
+### `swap-project:main`
+
+Generate a file `main.js` in the destination directory.
+
+```
+$ gen swap-project:main
+```
+
+### `swap-project:readme`
+
+Generate a file `README.md` in the destination directory.
+
+```
+$ gen swap-project:readme
+```
+
+### `swap-project:travis`
+
+Generate a file `.travis` in the destination directory.
+
+```
+$ gen swap-project:travis
+```
+
+### `swap-project:gitlabci`
+
+Generate a file `.gitlab-ci.yml` in the destination directory.
+
+```
+$ gen swap-project:gitlabci
 ```
 
 ## Contribute
