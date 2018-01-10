@@ -14,6 +14,8 @@ export default function (app) {
 
   app.use(generateDefaults)
 
+  app.postRender(/\.gitlab-ci\.yml$/, postRender(app))
+
   /**
    * Write a `.gitlabci` file to the current working directory.
    *
@@ -42,4 +44,25 @@ export default function (app) {
    * @api public
    */
   app.task('default', ['gitlabci'])
+}
+
+function postRender (app) {
+  return (file, next) => {
+    if (!file.basename === '.gitlab-ci.yml') {
+      next()
+      return
+    }
+
+    let contents
+    try {
+      contents = String(file.contents)
+      contents = contents.replace(/#{/g, '${')
+      file.contents = Buffer.from(contents)
+    } catch (err) {
+      app.log.error('.gitlab-ci.yml post-render hook failed!')
+      next(err)
+    }
+
+    next()
+  }
 }
