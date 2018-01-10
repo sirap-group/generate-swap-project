@@ -30,44 +30,42 @@ $ gen swap-project
 
 Should scaffold the project in the destination path you choose when asked.
 
-### Example
+### Generated files
 
-#### Usage screenshot
+```
+.
+├─┬ src/
+| ├─┬ tests/
+| | └─ index.test.js
+| ├─┬ assets/
+| | └─┬ img/
+| |   └── ...
+| └─┬ lib/
+|   └─ index.js
+├── contribute.md
+├── .editorconfig
+├── .git
+├── .gitattributes
+├── .gitignore
+├── .gitlab-ci.yml
+├── index.js
+├── LICENSE
+├── node_modules
+├── .npmrc
+├── package.json
+├── README.md
+└── .travis.yml
+```
 
-Generating the project:
+### Generating the `my-swap-app` project
 
 ![Usage example](src/assets/img/usage-screencast.gif)
 
-Then install dependencies and run the unit tests:
+### Then install dependencies and run the unit tests
 
 ![Usage example](src/assets/img/usage-screencast-2.gif)
 
-#### Resulting files
-
-```
-$ cat mylab/package.json
-{
-  "name": "mylab",
-  "description": "mylab SWAP app",
-  "version": "v0.1.0",
-  "homepage": "https://gitlab.sirap.fr/rbecheras/mylab",
-  "author": "Rémi Becheras (https://gitlab.sirap.fr/rbecheras)",
-  "repository": "git@gitlab.sirap.fr:rbecheras/mylab.git",
-  "bugs": {
-    "url": "https://gitlab.sirap.fr/rbecheras/mylab/issues"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "license": "UNLICENSED",
-  "scripts": {
-    "test": "mocha"
-  },
-  "keywords": []
-}
-```
-
-## Available Tasks
+## Available Generator's Tasks
 
 ### `swap-project:default`
 
