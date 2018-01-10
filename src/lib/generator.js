@@ -12,7 +12,7 @@ import generateGitignore from './subgenerators/generate-swap-gitignore/generator
 import generateGitattributes from './subgenerators/generate-swap-gitattributes/generator'
 import generateEditorconfig from './subgenerators/generate-swap-editorconfig/generator'
 import generateNpmrc from './subgenerators/generate-swap-npmrc/generator'
-import generateContribute from './subgenerators/generate-swap-contribute/generator'
+import generateContributing from './subgenerators/generate-swap-contributing/generator'
 import generateLicense from './subgenerators/generate-swap-license/generator'
 import generateMain from './subgenerators/generate-swap-main/generator'
 import generateReadme from './subgenerators/generate-swap-readme/generator'
@@ -43,7 +43,7 @@ export default function (app) {
   app.register('gitattributes', generateGitattributes)
   app.register('editorconfig', generateEditorconfig)
   app.register('npmrc', generateNpmrc)
-  app.register('contribute', generateContribute)
+  app.register('contributing', generateContributing)
   app.register('license', generateLicense)
   app.register('main', generateMain)
   app.register('readme', generateReadme)
@@ -69,7 +69,7 @@ export default function (app) {
       'gitattributes',
       'editorconfig',
       'npmrc',
-      'contribute',
+      'contributing',
       'license',
       'main',
       'readme',
@@ -175,17 +175,17 @@ export default function (app) {
   })
 
   /**
-   * Write a `contribute.md` file to the current working directory.
-   * Call the `contribute:default` task from the sub generator `generate-swap-contribute`.
+   * Write a `contributing.md` file to the current working directory.
+   * Call the `contributing:default` task from the sub generator `generate-swap-contributing`.
    *
    * ```sh
-   * $ gen swap-project:contribute
+   * $ gen swap-project:contributing
    * ```
-   * @name contribute
+   * @name contributing
    * @api public
    */
-  app.task('contribute', function (cb) {
-    app.generate(['contribute:default'], cb)
+  app.task('contributing', function (cb) {
+    app.generate(['contributing:default'], cb)
   })
 
   /**
