@@ -23,7 +23,7 @@ export default function (app) {
    * @name contributing
    * @api public
    */
-  task(app, 'contributing', 'generate-swap-contributing/CONTRIBUTING.md')
+  task(app, 'contributing', 'generate-swap-contributing/contributing.md')
 
   /**
    * Run the `default` task
