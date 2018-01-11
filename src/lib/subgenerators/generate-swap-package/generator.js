@@ -59,7 +59,7 @@ export default function (app) {
    * @name file
    * @api public
    */
-  app.task('default', ['package'])
+  app.task('default', ['package', 'gulp-release'])
 }
 
 function packagePostRender (app) {
