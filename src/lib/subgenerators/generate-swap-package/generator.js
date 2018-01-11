@@ -33,6 +33,17 @@ export default function (app) {
   task(app, 'package', 'generate-swap-package/$package.json')
 
   /**
+   * Write a `release.js` file to the `scripts/gulp-tasks/` directory.
+   *
+   * ```sh
+   * $ gen swap-package:gulp-release
+   * ```
+   * @name gulp-release
+   * @api public
+   */
+  task(app, 'package', 'generate-swap-package/gulp-tasks/release.js')
+
+  /**
    * Run the `package` task
    *
    * ```sh
