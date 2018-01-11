@@ -41,7 +41,7 @@ export default function (app) {
    * @name gulp-release
    * @api public
    */
-  task(app, 'package', 'generate-swap-package/gulp-tasks/release.js')
+  task(app, 'gulp-release', 'generate-swap-package/gulp-tasks/release.js')
 
   /**
    * Write a `watch.js` file to the `scripts/gulp-tasks/` directory.
@@ -52,7 +52,7 @@ export default function (app) {
    * @name gulp-watch
    * @api public
    */
-  task(app, 'package', 'generate-swap-package/gulp-tasks/watch.js')
+  task(app, 'gulp-watch', 'generate-swap-package/gulp-tasks/watch.js')
 
   /**
    * Run the `package` task
