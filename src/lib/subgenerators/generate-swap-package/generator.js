@@ -18,6 +18,7 @@ export default function (app) {
   app.helper('escapeQuotes', escapeQuotes)
 
   app.postRender(/package\.json$/, packagePostRender(app))
+  app.postRender(/release\.js$/, gulpReleasePostRender(app))
 
   app.use(generateDefaults)
 
@@ -31,6 +32,28 @@ export default function (app) {
    * @api public
    */
   task(app, 'package', 'generate-swap-package/$package.json')
+
+  /**
+   * Write a `release.js` file to the `scripts/gulp-tasks/` directory.
+   *
+   * ```sh
+   * $ gen swap-package:gulp-release
+   * ```
+   * @name gulp-release
+   * @api public
+   */
+  task(app, 'gulp-release', 'generate-swap-package/gulp-tasks/release.js')
+
+  /**
+   * Write a `watch.js` file to the `scripts/gulp-tasks/` directory.
+   *
+   * ```sh
+   * $ gen swap-package:gulp-watch
+   * ```
+   * @name gulp-watch
+   * @api public
+   */
+  task(app, 'gulp-watch', 'generate-swap-package/gulp-tasks/watch.js')
 
   /**
    * Run the `package` task
@@ -48,7 +71,7 @@ export default function (app) {
    * @name file
    * @api public
    */
-  app.task('default', ['package'])
+  app.task('default', ['package', 'gulp-release', 'gulp-watch'])
 }
 
 function packagePostRender (app) {
@@ -72,6 +95,29 @@ function packagePostRender (app) {
     pkg.keywords = pkg.keywords.split(',')
 
     file.contents = Buffer.from(JSON.stringify(pkg, null, 2))
+    next()
+  }
+}
+
+function gulpReleasePostRender (app) {
+  return (file, next) => {
+    if (!file.basename === 'release.js') {
+      const errMsg = `File basename (${file.basename}) doesnt match release.js`
+      app.log.error(errMsg)
+      next(errMsg)
+      return
+    }
+
+    let contents
+    try {
+      contents = String(file.contents)
+      contents = contents.replace(/#{/g, '${')
+      file.contents = Buffer.from(contents)
+    } catch (err) {
+      app.log.error('release.js post-render hook failed!')
+      next(err)
+    }
+
     next()
   }
 }
