@@ -18,6 +18,12 @@
   </a>
 </p>
 
+## Demo example
+
+Check out the following repository to see what a project generated with `generate-swap-project` looks like out the box:
+
+> [https://github.com/rbecheras/swap-project-example](https://github.com/rbecheras/swap-project-example)
+
 ## Installation
 
 ```sh
