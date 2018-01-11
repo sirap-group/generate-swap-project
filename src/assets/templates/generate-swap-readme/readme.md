@@ -160,6 +160,18 @@ $ yarn pipeline:test
 | `yarn release:minor` | Release and publish a new minor semver version (`x.y+1.z=0`)|
 | `yarn release:major` | Release and publish a new major semver version (`x+1.y=0.z=0`)|
 
+#### Develop in BDD mode
+
+> **B.D.D.** means **Behavior-Driven-Development**
+
+The project is ready to code in BDD mode. Just run the `bdd` yarn command:
+
+```
+$ yarn bdd
+```
+
+The project will be lint, built, the BDD unit tests will be run, and the process will watch for any file changes to loop over the previous tasks (`lint`, `build`, `test`, `watch`).
+
 #### Releasing a new version
 
 The task `yarn pipeline:build` generate a `./dist` folder in the repository's root directory but this folder is not part of the git repository (there is an entry in the `.gitignore` file). However the dist folder is included in the `package.json#files` field.
