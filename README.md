@@ -3,7 +3,7 @@
 <p style="text-align:center">
   By <img src="src/assets/img/brand.png"/><br/>
   <span style="font-weight: bold; font-style: italic; font-size:1.5em">
-    −− Generate An ES.Next Ready Project in Seconds! −−
+    −− Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! −−
     <br>
     −− A generator for SWAP projects −−
   </span><br>
