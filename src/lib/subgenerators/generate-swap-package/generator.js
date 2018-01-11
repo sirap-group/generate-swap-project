@@ -70,7 +70,7 @@ export default function (app) {
    * @name file
    * @api public
    */
-  app.task('default', ['package', 'gulp-release'])
+  app.task('default', ['package', 'gulp-release', 'gulp-watch'])
 }
 
 function packagePostRender (app) {
