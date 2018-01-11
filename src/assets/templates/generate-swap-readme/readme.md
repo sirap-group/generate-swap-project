@@ -72,7 +72,7 @@ import <%= camelcase(ask('name')) %> from '<%= ask('name') %>'
 
 **@TODO: document the API here**
 
-## Contribute
+## Contributing
 
 ### Codebase
 
@@ -93,7 +93,7 @@ We use:
 
 ### Contribution guide
 
-> See the [contribution guide](contributing.md) in a separated document.
+> See the [contribution guide](CONTRIBUTING.md) in a separated document.
 
 ### Development
 
