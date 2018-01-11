@@ -18,6 +18,7 @@ export default function (app) {
   app.helper('escapeQuotes', escapeQuotes)
 
   app.postRender(/package\.json$/, packagePostRender(app))
+  app.postRender(/release\.js$/, gulpReleasePostRender(app))
 
   app.use(generateDefaults)
 
@@ -94,6 +95,29 @@ function packagePostRender (app) {
     pkg.keywords = pkg.keywords.split(',')
 
     file.contents = Buffer.from(JSON.stringify(pkg, null, 2))
+    next()
+  }
+}
+
+function gulpReleasePostRender (app) {
+  return (file, next) => {
+    if (!file.basename === 'release.js') {
+      const errMsg = `File basename (${file.basename}) doesnt match release.js`
+      app.log.error(errMsg)
+      next(errMsg)
+      return
+    }
+
+    let contents
+    try {
+      contents = String(file.contents)
+      contents = contents.replace(/#{/g, '${')
+      file.contents = Buffer.from(contents)
+    } catch (err) {
+      app.log.error('release.js post-render hook failed!')
+      next(err)
+    }
+
     next()
   }
 }
