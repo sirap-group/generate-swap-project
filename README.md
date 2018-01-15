@@ -1,22 +1,39 @@
-# generate-swap-project
+<h1 align="center">
+  <a href="https://github.com/sirap-group"><img src="src/assets/img/brand.png"/></a>
+  <br>
+  −− generate-swap-project −−
+  <br>
+  <br>
+</h1>
 
-<p style="text-align:center">
-  By <img src="src/assets/img/brand.png"/><br/>
-  <span style="font-weight: bold; font-style: italic; font-size:1.5em">
-    −− Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! −−
-    <br>
-    −− A generator for SWAP projects −−
-  </span><br>
-  <a href="https://npmjs.org/package/generate-swap-project" target="_blank">
-    <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-project.svg"/>
-  </a>
+<p align="center">
   <a href="https://travis-ci.org/rbecheras/generate-swap-project" target="_blank">
     <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master"/>
   </a>
+
+  <a href="https://www.npmjs.com/package/generate-swap-project">
+    <img src="https://img.shields.io/npm/dm/generate-swap-project.svg" alt="npm downloads">
+  </a>
+
+  <a href="https://npmjs.org/package/generate-swap-project" target="_blank">
+    <img alt="NPM version" src="https://badge.fury.io/js/generate-swap-project.svg"/>
+  </a>
+
   <a href="https://standardjs.com" target="_blank">
     <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
   </a>
 </p>
+
+<h4 align="center">
+  −− Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! −−
+  <br>
+  −− A generator for SWAP projects −−
+  <br>
+  <br>
+  <a href="https://www.npmjs.com/package/generate-swap-project" target="_blank">
+    <img alt="NPM Stats" src="https://nodei.co/npm/generate-swap-project.png?downloads=true&downloadRank=true&stars=true"/>
+  </a>
+</h4>
 
 ## Demo example
 
