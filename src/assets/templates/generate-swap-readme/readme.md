@@ -3,23 +3,35 @@ layout: false
 rename:
   basename: 'README.md'
 ---
-# <%= ask('name') %>
+<h1 align="center">
+  <a href="https://github.com/<%= ask('namespace') %>"><img src="src/assets/img/brand.png"/></a>
+  <br>
+  −− <%= ask('name') %> −−
+  <br>
+  <br>
+</h1>
 
-<p style="text-align:center">
-  By <img src="src/assets/img/brand.png"/><br/>
-  <span style="font-weight: bold; font-style: italic; font-size:1.5em">
-    −− <%= ask('description') %> −−
-  </span><br>
-  <a href="https://npmjs.org/package/<%= ask('name') %>" target="_blank">
-    <img alt="NPM version" src="https://badge.fury.io/js/<%= ask('name') %>.svg"/>
-  </a>
+<p align="center">
   <a href="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>" target="_blank">
     <img alt="Build Status" src="https://travis-ci.org/<%= ask('namespace') %>/<%= ask('name') %>.svg?branch=master"/>
   </a>
+
+  <a href="https://www.npmjs.com/package/<%= ask('name') %>">
+    <img src="https://img.shields.io/npm/dm/<%= ask('name') %>.svg" alt="npm downloads">
+  </a>
+
+  <a href="https://npmjs.org/package/<%= ask('name') %>" target="_blank">
+    <img alt="NPM version" src="https://badge.fury.io/js/<%= ask('name') %>.svg"/>
+  </a>
+
   <a href="https://standardjs.com" target="_blank">
     <img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
   </a>
 </p>
+
+<h4 align="center">
+  −− <%= ask('description') %> −−
+</h4>
 
 ## Installation
 
