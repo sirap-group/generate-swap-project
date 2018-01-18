@@ -2,11 +2,11 @@
   "name": "generate-swap-project",
   "description": "Generate An ES.Next/StandardJS/UnitTest Ready, Github or Gitlab Project in Seconds! − A generator for SWAP projects −",
   "version": "1.2.0",
-  "homepage": "https://github.com/rbecheras/generate-swap-project",
+  "homepage": "https://github.com/sirap-group/generate-swap-project",
   "author": "Rémi Becheras (https://github.com/rbecheras)",
-  "repository": "rbecheras/generate-swap-project",
+  "repository": "sirap-group/generate-swap-project",
   "bugs": {
-    "url": "https://github.com/rbecheras/generate-swap-project/issues"
+    "url": "https://github.com/sirap-group/generate-swap-project/issues"
   },
   "license": "MIT",
   "files": [

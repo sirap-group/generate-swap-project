@@ -400,6 +400,17 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 * [engine](https://www.npmjs.com/package/engine): Template engine based on Lo-Dash template, but adds features like the ability to register helpers… [more](https://www.npmjs.com/package/engine) | [homepage](https://github.com/jonschlinkert/engine)
 * [template](https://www.npmjs.com/package/template): Render templates using any engine. Supports, layouts, pages, partials and custom template types. Use template… [more](https://www.npmjs.com/package/template) | [homepage](https://github.com/jonschlinkert/template)
 
+## Author
+
+**Rémi Becheras**
+
+* [github.com/rbecheras](https://github.com/rbecheras)
+* [twitter/rbecheras](https://twitter.com/rbecheras)
+
 ## License
 
-MIT © [Rémi Becheras](https://github.com/rbecheras)
+Copyright © 2018 [Groupe SIRAP](https://github.com/sirap-group)
+
+This software is open source software under  the terms of the MIT license.
+
+See [LICENSE](LICENSE)
