@@ -7,8 +7,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/rbecheras/generate-swap-project" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master"/>
+  <a href="https://travis-ci.org/sirap-group/generate-swap-project" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/sirap-group/generate-swap-project.svg?branch=master"/>
   </a>
 
   <a href="https://www.npmjs.com/package/generate-swap-project">
@@ -39,7 +39,7 @@
 
 Check out the following repository to see what a project generated with `generate-swap-project` looks like out the box:
 
-> [https://github.com/rbecheras/swap-project-example](https://github.com/rbecheras/swap-project-example)
+> [https://github.com/sirap-group/swap-project-example](https://github.com/sirap-group/swap-project-example)
 
 ## Installation
 
@@ -317,7 +317,7 @@ All the rest of the development dependencies are local.
 Clone the repo and install dependencies:
 
 ```sh
-$ git clone git@github.com:rbecheras/generate-swap-project.git
+$ git clone git@github.com:sirap-group/generate-swap-project.git
 $ cd generate-swap-project
 $ yarn install
 ```
@@ -388,7 +388,7 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ### SWAP Generators
 
-* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/rbecheras/generate-swap-generator) | [homepage](https://rbecheras.github.io/generate-swap-project/)
+* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/sirap-group/generate-swap-generator) | [homepage](https://sirap-group.github.io/generate-swap-project/)
 
 ### Generator library stack
 
