@@ -7,8 +7,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://travis-ci.org/rbecheras/generate-swap-project" target="_blank">
-    <img alt="Build Status" src="https://travis-ci.org/rbecheras/generate-swap-project.svg?branch=master"/>
+  <a href="https://travis-ci.org/sirap-group/generate-swap-project" target="_blank">
+    <img alt="Build Status" src="https://travis-ci.org/sirap-group/generate-swap-project.svg?branch=master"/>
   </a>
 
   <a href="https://www.npmjs.com/package/generate-swap-project">
@@ -39,7 +39,7 @@
 
 Check out the following repository to see what a project generated with `generate-swap-project` looks like out the box:
 
-> [https://github.com/rbecheras/swap-project-example](https://github.com/rbecheras/swap-project-example)
+> [https://github.com/sirap-group/swap-project-example](https://github.com/sirap-group/swap-project-example)
 
 ## Installation
 
@@ -317,7 +317,7 @@ All the rest of the development dependencies are local.
 Clone the repo and install dependencies:
 
 ```sh
-$ git clone git@github.com:rbecheras/generate-swap-project.git
+$ git clone git@github.com:sirap-group/generate-swap-project.git
 $ cd generate-swap-project
 $ yarn install
 ```
@@ -388,7 +388,7 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ### SWAP Generators
 
-* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/rbecheras/generate-swap-generator) | [homepage](https://rbecheras.github.io/generate-swap-project/)
+* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/sirap-group/generate-swap-generator) | [homepage](https://sirap-group.github.io/generate-swap-project/)
 
 ### Generator library stack
 
@@ -400,6 +400,17 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 * [engine](https://www.npmjs.com/package/engine): Template engine based on Lo-Dash template, but adds features like the ability to register helpers… [more](https://www.npmjs.com/package/engine) | [homepage](https://github.com/jonschlinkert/engine)
 * [template](https://www.npmjs.com/package/template): Render templates using any engine. Supports, layouts, pages, partials and custom template types. Use template… [more](https://www.npmjs.com/package/template) | [homepage](https://github.com/jonschlinkert/template)
 
+## Author
+
+**Rémi Becheras**
+
+* [github.com/rbecheras](https://github.com/rbecheras)
+* [twitter/rbecheras](https://twitter.com/rbecheras)
+
 ## License
 
-MIT © [Rémi Becheras](https://github.com/rbecheras)
+Copyright © 2018 [Groupe SIRAP](https://github.com/sirap-group)
+
+This software is open source software under  the terms of the MIT license.
+
+See [LICENSE](LICENSE)
