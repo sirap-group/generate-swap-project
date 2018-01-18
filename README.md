@@ -388,7 +388,7 @@ The whole build pipeline is run locally (lint, transpile, test) and then a new g
 
 ### SWAP Generators
 
-* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/sirap-group/generate-swap-generator) | [homepage](https://sirap-group.github.io/generate-swap-project/)
+* [generate-swap-generator](https://npmjs.com/generate-swap-generator) Generate your own ESNext/StandardJS/UnitTest Ready Generators − A generator for SWAP generators [github](https://github.com/sirap-group/generate-swap-generator) | [homepage](https://sirap-group.github.io/generate-swap-generator/)
 
 ### Generator library stack
 
