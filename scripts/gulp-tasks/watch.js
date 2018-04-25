@@ -33,7 +33,7 @@ gulp.task('watch:bdd', function (done) {
     read: false
   }
 
-  const build = cb => shell.exec('yarn pipeline:tests', cb)
+  const build = cb => shell.exec('yarn pipeline:tests --color always', cb)
 
   const onChange = vinyl => {
     build()
