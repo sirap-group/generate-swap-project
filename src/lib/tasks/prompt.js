@@ -62,7 +62,7 @@ export default app => {
     })
     .then(answers => {
       const {githosts} = answers
-      defaultHost = (githosts.length > 1) ? 'github.com' : githosts[0]
+      defaultHost = (!githosts || githosts.length > 1) ? 'github.com' : githosts[0]
       const authorUsername = answers.author.username
       const defaultAuthorUrl = defaultHost === 'github.com'
         ? `https://github.com/${authorUsername}`
