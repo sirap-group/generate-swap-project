@@ -1,13 +1,13 @@
-'use strict'
-
-export { escapeQuotes, camelcase }
-
-function escapeQuotes (str) {
+export function escapeQuotes (str) {
   return str.replace(/\\?"/g, '\\"')
 }
 
-function camelcase (str) {
+export function camelcase (str) {
   return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
     return index === 0 ? letter.toLowerCase() : letter.toUpperCase()
   }).replace(/\s+/g, '')
+}
+
+export function unescapeTemplateLitterals (str) {
+  return str.replace(/#{/g, '${')
 }
