@@ -63,22 +63,23 @@ function watcher () {
     dbug('Running onWatch task list...')
 
     const sourceFilePath = file.path
-    dbug(`Linting file ${sourceFilePath}...`)
-    shell.exec(`yarn standard ${sourceFilePath} --color always`, err => {
+    dbug(`Linting file <%= unescapeTemplateLitterals(#{sourceFilePath}) %>...`)
+
+    shell.exec(`yarn standard <%= unescapeTemplateLitterals(#{sourceFilePath}) %> --color always`, err => {
       if (err) {
-        dbug(chalk.red(`Linting file ${sourceFilePath}... ERROR.`))
+        dbug(chalk.red(`Linting file <%= unescapeTemplateLitterals(#{sourceFilePath}) %>... ERROR.`))
         console.error(chalk.red('Lint error. Skip next tasks and wait for new changes.'))
       } else {
-        dbug(`Linting file ${sourceFilePath}... OK.`)
+        dbug(`Linting file <%= unescapeTemplateLitterals(#{sourceFilePath}) %>... OK.`)
 
         const destFilePath = sourceFilePath.replace('/src/', '/dist/')
-        dbug(`Transpiling file ${sourceFilePath} to ${destFilePath}...`)
-        shell.exec(`yarn babel ${sourceFilePath} --out-file ${destFilePath} --color always`, err => {
+        dbug(`Transpiling file <%= unescapeTemplateLitterals(#{sourceFilePath}) %> to ${destFilePath}...`)
+        shell.exec(`yarn babel <%= unescapeTemplateLitterals(#{sourceFilePath}) %> --out-file ${destFilePath} --color always`, err => {
           if (err) {
-            dbug(`Transpiling file ${sourceFilePath} to ${destFilePath}... ERROR.`)
+            dbug(`Transpiling file <%= unescapeTemplateLitterals(#{sourceFilePath}) %> to ${destFilePath}... ERROR.`)
             console.error(chalk.red('Transpiling error. Skip next tasks and wait for new changes.'))
           } else {
-            dbug(`Transpiling file ${sourceFilePath} to ${destFilePath}... OK.`)
+            dbug(`Transpiling file <%= unescapeTemplateLitterals(#{sourceFilePath}) %> to ${destFilePath}... OK.`)
 
             dbug('Running all tests suite...')
             shell.exec(`DEBUG_COLORS=true yarn test --color always`, err => {

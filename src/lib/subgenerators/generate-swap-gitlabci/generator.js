@@ -2,6 +2,7 @@ import isValid from 'is-valid-app'
 
 import { task } from '../../utils/utils'
 import Logger from '../../utils/Logger'
+import {unescapeTemplateLitterals} from '../../utils/helpers'
 
 import generateDefaults from 'generate-defaults'
 
@@ -14,7 +15,8 @@ export default function (app) {
 
   app.use(generateDefaults)
 
-  app.postRender(/\.gitlab-ci\.yml$/, postRender(app))
+  app.helper('unescapeTemplateLitterals', unescapeTemplateLitterals)
+  // app.postRender(/\.gitlab-ci\.yml$/, postRender(app))
 
   /**
    * Write a `.gitlabci` file to the current working directory.

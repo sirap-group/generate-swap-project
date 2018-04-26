@@ -2,7 +2,7 @@ import isValid from 'is-valid-app'
 import helperDate from 'helper-date'
 
 import { task } from '../../utils/utils'
-import { escapeQuotes } from '../../utils/helpers'
+import { escapeQuotes, unescapeTemplateLitterals } from '../../utils/helpers'
 import Logger from '../../utils/Logger'
 
 import generateDefaults from 'generate-defaults'
@@ -21,6 +21,8 @@ export default function (app) {
   app.postRender(/release\.js$/, gulpReleasePostRender(app))
 
   app.use(generateDefaults)
+
+  app.helper('unescapeTemplateLitterals', unescapeTemplateLitterals)
 
   /**
    * Write a `package.json` file to the current working directory.
